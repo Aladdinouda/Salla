@@ -1,33 +1,76 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title data-i18n="pageTitle">سلة | تسوّق من متاجر غزة</title>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="theme-color"
+    content="#071b12"
+  />
 
   <meta
     name="description"
     content="سلة — منصة التسوق المحلية التي تجمع متاجر غزة في مكان واحد."
   />
 
+  <meta
+    name="keywords"
+    content="سلة, غزة, تسوق, متاجر غزة, تطبيق سلة, توصيل, تسوق محلي"
+  />
+
+  <meta
+    property="og:title"
+    content="سلة | تسوّق من متاجر غزة"
+  />
+
+  <meta
+    property="og:description"
+    content="اكتشف متاجر غزة واطلب منتجاتك بسهولة من مكان واحد."
+  />
+
+  <meta
+    property="og:type"
+    content="website"
+  />
+
+  <title data-i18n="pageTitle">
+    سلة | تسوّق من متاجر غزة
+  </title>
+
+
+  <!-- =====================================================
+       FONTS
+  ====================================================== -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=El+Messiri:wght@500;600;700&display=swap"
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
-  />
+  >
+
 
   <style>
 
-    /* =========================================================
+    /* =====================================================
        ROOT
-    ========================================================= */
+    ====================================================== */
 
     :root {
+
       --bg: #071b12;
       --bg-2: #0b2419;
       --bg-3: #102f21;
@@ -42,11 +85,16 @@
       --cream-2: #eee8d6;
 
       --white: #ffffff;
+
       --text-dark: #0c1f16;
+
       --muted: #687a70;
 
-      --border-light: rgba(255,255,255,.10);
-      --border-dark: rgba(12,31,22,.08);
+      --border-light:
+        rgba(255,255,255,.10);
+
+      --border-dark:
+        rgba(12,31,22,.08);
 
       --shadow:
         0 30px 80px rgba(0,0,0,.22);
@@ -55,223 +103,510 @@
       --radius-lg: 24px;
       --radius-md: 18px;
 
-      --transition: .35s cubic-bezier(.2,.8,.2,1);
+      --transition:
+        .35s cubic-bezier(.2,.8,.2,1);
+
     }
+
+
+    /* =====================================================
+       RESET
+    ====================================================== */
 
     * {
+
       margin: 0;
       padding: 0;
+
       box-sizing: border-box;
+
     }
+
 
     html {
+
       scroll-behavior: smooth;
+
+      scroll-padding-top: 90px;
+
     }
+
 
     body {
-      font-family: "Cairo", sans-serif;
-      background: var(--cream);
-      color: var(--text-dark);
+
+      margin: 0;
+
+      font-family:
+        "Cairo",
+        "Inter",
+        sans-serif;
+
+      background:
+        var(--cream);
+
+      color:
+        var(--text-dark);
+
       overflow-x: hidden;
+
     }
 
+
     body::selection {
-      background: var(--gold);
-      color: var(--bg);
+
+      background:
+        var(--gold);
+
+      color:
+        var(--bg);
+
     }
+
 
     h1,
     h2,
     h3,
-    h4,
-    .brand {
-      font-family: "El Messiri", sans-serif;
+    h4 {
+
+      font-family:
+        "Cairo",
+        "Inter",
+        sans-serif;
+
     }
+
+
+    html[dir="ltr"] body {
+
+      font-family:
+        "Inter",
+        "Cairo",
+        sans-serif;
+
+    }
+
 
     a {
-      color: inherit;
-      text-decoration: none;
+
+      color:
+        inherit;
+
+      text-decoration:
+        none;
+
     }
+
 
     button {
-      border: none;
-      outline: none;
-      font-family: inherit;
-      cursor: pointer;
+
+      border:
+        none;
+
+      outline:
+        none;
+
+      font:
+        inherit;
+
+      cursor:
+        pointer;
+
     }
+
 
     img {
-      max-width: 100%;
-      display: block;
+
+      max-width:
+        100%;
+
+      display:
+        block;
+
     }
+
 
     .container {
-      width: min(1180px, calc(100% - 48px));
-      margin: auto;
+
+      width:
+        min(
+          1180px,
+          calc(100% - 48px)
+        );
+
+      margin:
+        auto;
+
     }
 
-    /* =========================================================
-       BACKGROUND
-    ========================================================= */
+
+    /* =====================================================
+       BACKGROUND NOISE
+    ====================================================== */
 
     .noise {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 9999;
-      opacity: .035;
+
+      position:
+        fixed;
+
+      inset:
+        0;
+
+      pointer-events:
+        none;
+
+      z-index:
+        9999;
+
+      opacity:
+        .035;
 
       background-image:
         url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+
     }
+
 
     .glow {
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      background: rgba(35,138,86,.18);
-      filter: blur(100px);
-      pointer-events: none;
-    }
 
-    .glow.gold {
-      background: rgba(214,173,53,.12);
-    }
+      position:
+        absolute;
 
-    /* =========================================================
-       NAVBAR
-    ========================================================= */
+      width:
+        500px;
 
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
+      height:
+        500px;
 
-      transition: var(--transition);
-    }
-
-    header.scrolled {
-      background: rgba(7,27,18,.86);
-      backdrop-filter: blur(22px);
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    nav {
-      width: min(1180px, calc(100% - 48px));
-      margin: auto;
-
-      height: 86px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-
-      color: var(--cream);
-
-      font-size: 23px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 13px;
+      border-radius:
+        50%;
 
       background:
-        linear-gradient(
-          145deg,
-          var(--gold-light),
-          var(--gold)
+        rgba(35,138,86,.18);
+
+      filter:
+        blur(100px);
+
+      pointer-events:
+        none;
+
+    }
+
+
+    .glow.gold {
+
+      background:
+        rgba(214,173,53,.12);
+
+    }
+
+
+    /* =====================================================
+       HEADER
+    ====================================================== */
+
+    header {
+
+      position:
+        fixed;
+
+      top:
+        0;
+
+      left:
+        0;
+
+      right:
+        0;
+
+      z-index:
+        1000;
+
+      transition:
+        var(--transition);
+
+    }
+
+
+    header.scrolled {
+
+      background:
+        rgba(7,27,18,.88);
+
+      backdrop-filter:
+        blur(22px);
+
+      -webkit-backdrop-filter:
+        blur(22px);
+
+      border-bottom:
+        1px solid
+        var(--border-light);
+
+    }
+
+
+    nav {
+
+      width:
+        min(
+          1180px,
+          calc(100% - 48px)
         );
 
-      color: var(--bg);
+      height:
+        86px;
 
-      font-size: 20px;
-      font-weight: 800;
+      margin:
+        auto;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        30px;
+
+    }
+
+
+    /* =====================================================
+       BRAND
+    ====================================================== */
+
+    .brand {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        11px;
+
+      color:
+        var(--cream);
+
+      font-size:
+        23px;
+
+      font-weight:
+        800;
+
+      white-space:
+        nowrap;
+
+    }
+
+
+    .brand-icon {
+
+      width:
+        42px;
+
+      height:
+        42px;
+
+      object-fit:
+        contain;
+
+      border-radius:
+        11px;
 
       box-shadow:
-        0 8px 30px rgba(214,173,53,.28);
+        0 8px 30px
+        rgba(214,173,53,.20);
+
     }
-    .brand-icon {
-  width: 42px;
-  height: 42px;
-  object-fit: contain;
-  border-radius: 10px;
-}
+
+
+    /* =====================================================
+       NAV CENTER
+    ====================================================== */
 
     .nav-center {
-      display: flex;
-      align-items: center;
-      gap: 34px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        34px;
+
     }
+
 
     .nav-center a {
-      color: rgba(248,245,234,.72);
-      font-size: 14px;
 
-      transition: var(--transition);
+      position:
+        relative;
+
+      color:
+        rgba(248,245,234,.72);
+
+      font-size:
+        13px;
+
+      font-weight:
+        600;
+
+      transition:
+        var(--transition);
+
     }
+
+
+    .nav-center a::after {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      bottom:
+        -9px;
+
+      right:
+        50%;
+
+      width:
+        0;
+
+      height:
+        2px;
+
+      border-radius:
+        10px;
+
+      background:
+        var(--gold-light);
+
+      transform:
+        translateX(50%);
+
+      transition:
+        var(--transition);
+
+    }
+
 
     .nav-center a:hover {
-      color: var(--gold-light);
+
+      color:
+        var(--gold-light);
+
     }
+
+
+    .nav-center a:hover::after {
+
+      width:
+        100%;
+
+    }
+
+
+    /* =====================================================
+       NAV ACTIONS
+    ====================================================== */
 
     .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        10px;
+
     }
+
 
     .language-btn {
-      height: 42px;
-      padding: 0 15px;
 
-      border: 1px solid rgba(248,245,234,.16);
-      border-radius: 12px;
+      height:
+        42px;
 
-      color: var(--cream);
-      background: rgba(255,255,255,.04);
+      padding:
+        0 15px;
 
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      border:
+        1px solid
+        rgba(248,245,234,.16);
 
-      font-size: 13px;
+      border-radius:
+        12px;
 
-      transition: var(--transition);
+      color:
+        var(--cream);
+
+      background:
+        rgba(255,255,255,.04);
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        8px;
+
+      font-size:
+        12px;
+
+      transition:
+        var(--transition);
+
     }
+
 
     .language-btn:hover {
-      border-color: rgba(214,173,53,.5);
-      color: var(--gold-light);
-      transform: translateY(-2px);
+
+      border-color:
+        rgba(214,173,53,.5);
+
+      color:
+        var(--gold-light);
+
+      transform:
+        translateY(-2px);
+
     }
 
+
     .nav-download {
-      height: 42px;
-      padding: 0 19px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      height:
+        42px;
 
-      border-radius: 12px;
+      padding:
+        0 19px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      border-radius:
+        12px;
 
       background:
         linear-gradient(
@@ -280,47 +615,88 @@
           var(--gold)
         );
 
-      color: var(--bg);
+      color:
+        var(--bg);
 
-      font-size: 13px;
-      font-weight: 800;
+      font-size:
+        12px;
+
+      font-weight:
+        800;
 
       box-shadow:
-        0 8px 22px rgba(214,173,53,.2);
+        0 8px 22px
+        rgba(214,173,53,.2);
 
-      transition: var(--transition);
+      transition:
+        var(--transition);
+
     }
+
 
     .nav-download:hover {
-      transform: translateY(-3px);
+
+      transform:
+        translateY(-3px);
 
       box-shadow:
-        0 14px 30px rgba(214,173,53,.3);
+        0 14px 30px
+        rgba(214,173,53,.3);
+
     }
+
 
     .mobile-menu {
-      display: none;
 
-      width: 42px;
-      height: 42px;
+      display:
+        none;
 
-      border-radius: 12px;
+      width:
+        42px;
 
-      background: rgba(255,255,255,.05);
-      color: var(--cream);
+      height:
+        42px;
 
-      font-size: 21px;
+      border-radius:
+        12px;
+
+      background:
+        rgba(255,255,255,.05);
+
+      color:
+        var(--cream);
+
+      font-size:
+        20px;
+
+      transition:
+        var(--transition);
+
     }
 
-    /* =========================================================
+
+    .mobile-menu:hover {
+
+      background:
+        rgba(255,255,255,.10);
+
+    }
+
+
+    /* =====================================================
        HERO
-    ========================================================= */
+    ====================================================== */
 
     .hero {
-      min-height: 900px;
 
-      position: relative;
-      overflow: hidden;
+      position:
+        relative;
+
+      min-height:
+        900px;
+
+      overflow:
+        hidden;
 
       padding:
         180px 0
@@ -334,94 +710,188 @@
           #04120c 100%
         );
 
-      color: var(--cream);
+      color:
+        var(--cream);
+
     }
+
 
     .hero-grid {
-      position: relative;
-      z-index: 3;
 
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
+      position:
+        relative;
 
-      align-items: center;
+      z-index:
+        3;
 
-      gap: 70px;
+      display:
+        grid;
+
+      grid-template-columns:
+        1.05fr .95fr;
+
+      align-items:
+        center;
+
+      gap:
+        70px;
+
     }
+
 
     .hero-content {
-      animation: heroIn .9s ease both;
+
+      animation:
+        heroIn .9s ease both;
+
     }
 
+
     @keyframes heroIn {
+
       from {
-        opacity: 0;
-        transform: translateY(30px);
+
+        opacity:
+          0;
+
+        transform:
+          translateY(30px);
+
       }
 
       to {
-        opacity: 1;
-        transform: translateY(0);
+
+        opacity:
+          1;
+
+        transform:
+          translateY(0);
+
       }
+
     }
+
 
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
 
-      padding: 8px 14px;
+      display:
+        inline-flex;
 
-      border-radius: 999px;
+      align-items:
+        center;
 
-      background: rgba(214,173,53,.08);
-      border: 1px solid rgba(214,173,53,.25);
+      gap:
+        10px;
 
-      color: var(--gold-light);
+      padding:
+        8px 14px;
 
-      font-size: 12.5px;
-      font-weight: 700;
+      border-radius:
+        999px;
 
-      margin-bottom: 24px;
+      background:
+        rgba(214,173,53,.08);
+
+      border:
+        1px solid
+        rgba(214,173,53,.25);
+
+      color:
+        var(--gold-light);
+
+      font-size:
+        12px;
+
+      font-weight:
+        700;
+
+      margin-bottom:
+        24px;
+
     }
+
 
     .eyebrow-dot {
-      width: 7px;
-      height: 7px;
 
-      border-radius: 50%;
+      width:
+        7px;
 
-      background: var(--green-light);
+      height:
+        7px;
+
+      border-radius:
+        50%;
+
+      background:
+        var(--green-light);
 
       box-shadow:
-        0 0 0 5px rgba(50,184,117,.1);
+        0 0 0 5px
+        rgba(50,184,117,.1);
+
     }
+
 
     .hero h1 {
-      font-size: clamp(42px, 5.4vw, 68px);
-      line-height: 1.2;
 
-      letter-spacing: -1px;
+      max-width:
+        720px;
 
-      margin-bottom: 25px;
+      font-size:
+        clamp(
+          42px,
+          5.4vw,
+          68px
+        );
+
+      line-height:
+        1.35;
+
+      letter-spacing:
+        -1px;
+
+      margin-bottom:
+        25px;
+
+      font-weight:
+        800;
+
     }
+
 
     .hero h1 span {
-      color: var(--gold-light);
 
-      position: relative;
+      position:
+        relative;
+
+      color:
+        var(--gold-light);
+
     }
 
+
     .hero h1 span::after {
-      content: "";
 
-      position: absolute;
+      content:
+        "";
 
-      right: 0;
-      bottom: -5px;
+      position:
+        absolute;
 
-      width: 75%;
-      height: 3px;
+      right:
+        0;
+
+      bottom:
+        -4px;
+
+      width:
+        75%;
+
+      height:
+        3px;
+
+      border-radius:
+        50%;
 
       background:
         linear-gradient(
@@ -430,39 +900,83 @@
           var(--gold)
         );
 
-      border-radius: 50%;
     }
+
 
     .hero-description {
-      max-width: 570px;
 
-      color: rgba(248,245,234,.72);
+      max-width:
+        570px;
 
-      font-size: 17px;
-      line-height: 2;
+      color:
+        rgba(248,245,234,.72);
 
-      margin-bottom: 34px;
+      font-size:
+        16px;
+
+      line-height:
+        2;
+
+      margin-bottom:
+        34px;
+
     }
+
 
     .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
 
-      margin-bottom: 38px;
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        12px;
+
+      margin-bottom:
+        38px;
+
     }
 
+
+    .primary-btn,
+    .secondary-btn {
+
+      min-height:
+        54px;
+
+      padding:
+        0 25px;
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        10px;
+
+      border-radius:
+        15px;
+
+      font-size:
+        13px;
+
+      font-weight:
+        800;
+
+      transition:
+        var(--transition);
+
+    }
+
+
     .primary-btn {
-      min-height: 54px;
-
-      padding: 0 25px;
-
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-
-      border-radius: 15px;
 
       background:
         linear-gradient(
@@ -471,111 +985,165 @@
           var(--gold)
         );
 
-      color: var(--bg);
-
-      font-size: 14px;
-      font-weight: 800;
+      color:
+        var(--bg);
 
       box-shadow:
-        0 15px 35px rgba(214,173,53,.22);
+        0 15px 35px
+        rgba(214,173,53,.22);
 
-      transition: var(--transition);
     }
+
 
     .primary-btn:hover {
-      transform: translateY(-4px);
+
+      transform:
+        translateY(-4px);
 
       box-shadow:
-        0 22px 42px rgba(214,173,53,.3);
+        0 22px 42px
+        rgba(214,173,53,.3);
+
     }
+
 
     .secondary-btn {
-      min-height: 54px;
 
-      padding: 0 24px;
+      border:
+        1px solid
+        rgba(248,245,234,.15);
 
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+      background:
+        rgba(255,255,255,.045);
 
-      border-radius: 15px;
+      color:
+        var(--cream);
 
-      border: 1px solid rgba(248,245,234,.15);
-
-      background: rgba(255,255,255,.045);
-
-      color: var(--cream);
-
-      font-size: 14px;
-      font-weight: 700;
-
-      transition: var(--transition);
     }
+
 
     .secondary-btn:hover {
-      background: rgba(255,255,255,.08);
-      transform: translateY(-4px);
+
+      background:
+        rgba(255,255,255,.08);
+
+      transform:
+        translateY(-4px);
+
     }
+
 
     .trust-row {
-      display: flex;
-      align-items: center;
-      gap: 25px;
 
-      color: rgba(248,245,234,.55);
+      display:
+        flex;
 
-      font-size: 12px;
+      align-items:
+        center;
+
+      gap:
+        25px;
+
+      color:
+        rgba(248,245,234,.55);
+
+      font-size:
+        11px;
+
     }
+
 
     .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 7px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        7px;
+
     }
+
 
     .trust-item span:first-child {
-      color: var(--gold-light);
-      font-size: 15px;
+
+      color:
+        var(--gold-light);
+
+      font-size:
+        15px;
+
     }
 
-    /* =========================================================
-       HERO PHONE
-    ========================================================= */
+
+    /* =====================================================
+       PHONE
+    ====================================================== */
 
     .hero-visual {
-      position: relative;
 
-      min-height: 600px;
+      position:
+        relative;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      min-height:
+        600px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
     }
+
 
     .phone-glow {
-      position: absolute;
 
-      width: 360px;
-      height: 360px;
+      position:
+        absolute;
 
-      background: rgba(50,184,117,.18);
+      width:
+        360px;
 
-      filter: blur(80px);
+      height:
+        360px;
 
-      border-radius: 50%;
+      border-radius:
+        50%;
+
+      background:
+        rgba(50,184,117,.18);
+
+      filter:
+        blur(80px);
+
     }
 
+
     .phone {
-      position: relative;
-      z-index: 3;
 
-      width: 305px;
-      height: 625px;
+      position:
+        relative;
 
-      padding: 9px;
+      z-index:
+        3;
 
-      border-radius: 48px;
+      width:
+        305px;
+
+      height:
+        625px;
+
+      padding:
+        9px;
+
+      border-radius:
+        48px;
 
       background:
         linear-gradient(
@@ -585,317 +1153,552 @@
         );
 
       box-shadow:
-        0 50px 100px rgba(0,0,0,.55),
-        0 0 0 1px rgba(214,173,53,.18);
+        0 50px 100px
+        rgba(0,0,0,.55),
 
-      transform: rotate(2deg);
+        0 0 0 1px
+        rgba(214,173,53,.18);
+
+      transform:
+        rotate(2deg);
 
       animation:
         phoneFloat 5s ease-in-out infinite;
+
     }
+
 
     @keyframes phoneFloat {
 
       0%,
       100% {
-        transform: rotate(2deg) translateY(0);
+
+        transform:
+          rotate(2deg)
+          translateY(0);
+
       }
 
       50% {
-        transform: rotate(0deg) translateY(-12px);
+
+        transform:
+          rotate(0deg)
+          translateY(-12px);
+
       }
+
     }
+
 
     .phone::before {
-      content: "";
 
-      position: absolute;
+      content:
+        "";
 
-      top: 14px;
-      left: 50%;
+      position:
+        absolute;
 
-      transform: translateX(-50%);
+      top:
+        14px;
 
-      width: 92px;
-      height: 23px;
+      left:
+        50%;
 
-      border-radius: 20px;
+      transform:
+        translateX(-50%);
 
-      background: #07150e;
+      width:
+        92px;
 
-      z-index: 20;
-    }
+      height:
+        23px;
 
-    /* =========================================================
-       PHONE SCREEN - IMAGE
-    ========================================================= */
-
-    .phone-screen {
-      width: 100%;
-      height: 100%;
-
-      border-radius: 40px;
-
-      overflow: hidden;
-
-      background: #ffffff;
-
-      padding: 0;
-
-      position: relative;
-    }
-
-    .phone-screen-image {
-      width: 100%;
-      height: 100%;
-
-      display: block;
-
-      object-fit: cover;
-
-      object-position: center;
-
-      border-radius: 40px;
-    }
-
-    /* =========================================================
-       FLOATING CARDS
-    ========================================================= */
-
-    .floating-card {
-      position: absolute;
-
-      z-index: 5;
-
-      padding: 12px 15px;
-
-      border-radius: 15px;
+      border-radius:
+        20px;
 
       background:
-        rgba(255,255,255,.95);
+        #07150e;
+
+      z-index:
+        20;
+
+    }
+
+
+    .phone-screen {
+
+      width:
+        100%;
+
+      height:
+        100%;
+
+      overflow:
+        hidden;
+
+      border-radius:
+        40px;
+
+      background:
+        #ffffff;
+
+      position:
+        relative;
+
+    }
+
+
+    .phone-screen-image {
+
+      width:
+        100%;
+
+      height:
+        100%;
+
+      object-fit:
+        cover;
+
+      object-position:
+        center;
+
+      border-radius:
+        40px;
+
+    }
+
+
+    /* =====================================================
+       FLOATING CARDS
+    ====================================================== */
+
+    .floating-card {
+
+      position:
+        absolute;
+
+      z-index:
+        5;
+
+      padding:
+        12px 15px;
+
+      border-radius:
+        15px;
+
+      background:
+        rgba(255,255,255,.96);
 
       box-shadow:
-        0 20px 50px rgba(0,0,0,.22);
+        0 20px 50px
+        rgba(0,0,0,.22);
 
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      display:
+        flex;
 
-      color: var(--bg);
+      align-items:
+        center;
+
+      gap:
+        10px;
+
+      color:
+        var(--bg);
 
       animation:
         cardFloat 4s ease-in-out infinite;
+
     }
+
 
     @keyframes cardFloat {
 
       0%,
       100% {
-        transform: translateY(0);
+
+        transform:
+          translateY(0);
+
       }
 
       50% {
-        transform: translateY(-8px);
+
+        transform:
+          translateY(-8px);
+
       }
+
     }
+
 
     .floating-card.one {
-      top: 13%;
-      right: -5%;
+
+      top:
+        13%;
+
+      right:
+        -5%;
+
     }
+
 
     .floating-card.two {
-      bottom: 14%;
-      left: -8%;
 
-      animation-delay: -2s;
+      bottom:
+        14%;
+
+      left:
+        -8%;
+
+      animation-delay:
+        -2s;
+
     }
+
 
     .floating-icon {
-      width: 34px;
-      height: 34px;
 
-      border-radius: 10px;
+      width:
+        34px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      height:
+        34px;
 
-      background: #eaf4ed;
+      border-radius:
+        10px;
 
-      font-size: 15px;
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      background:
+        #eaf4ed;
+
+      font-size:
+        15px;
+
     }
+
 
     .floating-card strong {
-      display: block;
 
-      font-size: 10px;
+      display:
+        block;
+
+      font-size:
+        10px;
+
     }
+
 
     .floating-card small {
-      color: #819187;
 
-      font-size: 8px;
+      display:
+        block;
+
+      color:
+        #819187;
+
+      font-size:
+        8px;
+
     }
 
-    /* =========================================================
-       LOGOS STRIP
-    ========================================================= */
+
+    /* =====================================================
+       PARTNERS
+    ====================================================== */
 
     .partners {
-      background: #fff;
 
-      padding: 27px 0;
+      background:
+        #fff;
 
-      border-bottom: 1px solid #e7eee9;
-      border-top: 1px solid #e7eee9;
+      padding:
+        27px 0;
+
+      border-top:
+        1px solid
+        #e7eee9;
+
+      border-bottom:
+        1px solid
+        #e7eee9;
+
     }
+
 
     .partners-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
 
-      gap: 20px;
+      display:
+        flex;
 
-      color: #8c9a93;
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        20px;
+
+      color:
+        #8c9a93;
+
     }
+
 
     .partners-label {
-      font-size: 11px;
-      white-space: nowrap;
+
+      font-size:
+        11px;
+
+      white-space:
+        nowrap;
+
     }
+
 
     .partner {
-      font-family: "El Messiri", sans-serif;
 
-      font-size: 17px;
+      font-family:
+        "Inter",
+        sans-serif;
 
-      opacity: .5;
+      font-size:
+        17px;
 
-      filter: grayscale(1);
+      opacity:
+        .5;
+
+      filter:
+        grayscale(1);
+
     }
 
-    /* =========================================================
+
+    /* =====================================================
        SECTIONS
-    ========================================================= */
+    ====================================================== */
 
     section {
-      padding: 115px 0;
+
+      padding:
+        115px 0;
+
+      scroll-margin-top:
+        80px;
+
     }
+
 
     .section-header {
-      max-width: 690px;
 
-      margin-bottom: 60px;
+      max-width:
+        690px;
+
+      margin-bottom:
+        60px;
+
     }
+
 
     .section-label {
-      display: block;
 
-      color: var(--green);
+      display:
+        block;
 
-      font-size: 12px;
-      font-weight: 800;
+      color:
+        var(--green);
 
-      margin-bottom: 12px;
+      font-size:
+        11px;
 
-      letter-spacing: .4px;
+      font-weight:
+        800;
+
+      margin-bottom:
+        12px;
+
+      letter-spacing:
+        .4px;
+
     }
+
 
     .section-header h2 {
-      color: var(--bg);
 
-      font-size: clamp(30px,4vw,46px);
+      color:
+        var(--bg);
 
-      line-height: 1.35;
+      font-size:
+        clamp(
+          30px,
+          4vw,
+          46px
+        );
 
-      margin-bottom: 16px;
+      line-height:
+        1.45;
+
+      margin-bottom:
+        16px;
+
+      font-weight:
+        800;
+
     }
+
 
     .section-header p {
-      color: var(--muted);
 
-      font-size: 15px;
-      line-height: 2;
+      color:
+        var(--muted);
+
+      font-size:
+        14px;
+
+      line-height:
+        2;
+
     }
 
-    /* =========================================================
+
+    /* =====================================================
        FEATURES
-    ========================================================= */
+    ====================================================== */
 
     .features {
-      background: var(--cream);
+
+      background:
+        var(--cream);
+
     }
 
+
     .features-grid {
-      display: grid;
+
+      display:
+        grid;
 
       grid-template-columns:
         repeat(4,1fr);
 
-      gap: 17px;
+      gap:
+        17px;
+
     }
+
 
     .feature {
-      position: relative;
 
-      padding: 29px 24px;
+      position:
+        relative;
 
-      min-height: 250px;
+      padding:
+        29px 24px;
 
-      background: rgba(255,255,255,.75);
+      min-height:
+        250px;
 
-      border: 1px solid #e5ede8;
+      background:
+        rgba(255,255,255,.75);
 
-      border-radius: 23px;
+      border:
+        1px solid
+        #e5ede8;
 
-      overflow: hidden;
+      border-radius:
+        23px;
 
-      transition: var(--transition);
+      overflow:
+        hidden;
+
+      transition:
+        var(--transition);
+
     }
+
 
     .feature::before {
-      content: "";
 
-      position: absolute;
+      content:
+        "";
 
-      width: 100px;
-      height: 100px;
+      position:
+        absolute;
 
-      top: -50px;
-      right: -50px;
+      width:
+        100px;
 
-      border-radius: 50%;
+      height:
+        100px;
 
-      background: rgba(35,138,86,.07);
+      top:
+        -50px;
 
-      transition: var(--transition);
+      right:
+        -50px;
+
+      border-radius:
+        50%;
+
+      background:
+        rgba(35,138,86,.07);
+
+      transition:
+        var(--transition);
+
     }
 
+
     .feature:hover {
-      transform: translateY(-8px);
+
+      transform:
+        translateY(-8px);
 
       border-color:
         rgba(35,138,86,.35);
 
       box-shadow:
-        0 25px 50px rgba(7,27,18,.09);
+        0 25px 50px
+        rgba(7,27,18,.09);
+
     }
+
 
     .feature:hover::before {
-      transform: scale(2.4);
+
+      transform:
+        scale(2.4);
+
     }
 
+
     .feature-icon {
-      width: 52px;
-      height: 52px;
 
-      border-radius: 15px;
+      width:
+        52px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      height:
+        52px;
+
+      border-radius:
+        15px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
 
       background:
         linear-gradient(
@@ -904,116 +1707,187 @@
           #164932
         );
 
-      color: var(--gold-light);
+      color:
+        var(--gold-light);
 
-      font-size: 20px;
+      font-size:
+        20px;
 
-      margin-bottom: 23px;
+      margin-bottom:
+        23px;
 
       box-shadow:
-        0 12px 25px rgba(7,27,18,.13);
+        0 12px 25px
+        rgba(7,27,18,.13);
+
     }
+
 
     .feature h3 {
-      font-family: "Cairo", sans-serif;
 
-      color: var(--bg);
+      color:
+        var(--bg);
 
-      font-size: 16px;
-      font-weight: 800;
+      font-size:
+        16px;
 
-      margin-bottom: 9px;
+      font-weight:
+        800;
+
+      margin-bottom:
+        9px;
+
     }
+
 
     .feature p {
-      color: var(--muted);
 
-      font-size: 12.5px;
+      color:
+        var(--muted);
 
-      line-height: 1.9;
+      font-size:
+        12px;
+
+      line-height:
+        1.9;
+
     }
 
-    /* =========================================================
-       HOW IT WORKS
-    ========================================================= */
+
+    /* =====================================================
+       HOW
+    ====================================================== */
 
     .how {
-      background: #edf4ee;
+
+      background:
+        #edf4ee;
+
     }
 
+
     .steps {
-      display: grid;
+
+      display:
+        grid;
 
       grid-template-columns:
         repeat(4,1fr);
 
-      gap: 25px;
+      gap:
+        25px;
+
     }
+
 
     .step {
-      position: relative;
 
-      padding: 10px 5px;
+      position:
+        relative;
+
+      padding:
+        10px 5px;
+
     }
+
 
     .step-number {
-      font-family: "El Messiri", sans-serif;
 
-      font-size: 62px;
-      font-weight: 700;
+      font-family:
+        "Inter",
+        sans-serif;
 
-      line-height: 1;
+      font-size:
+        62px;
 
-      color: transparent;
+      font-weight:
+        700;
+
+      line-height:
+        1;
+
+      color:
+        transparent;
 
       -webkit-text-stroke:
-        1.5px var(--gold);
+        1.5px
+        var(--gold);
 
-      opacity: .9;
+      opacity:
+        .9;
 
-      margin-bottom: 20px;
+      margin-bottom:
+        20px;
+
     }
+
 
     .step h3 {
-      font-size: 18px;
 
-      color: var(--bg);
+      font-size:
+        18px;
 
-      margin-bottom: 8px;
+      color:
+        var(--bg);
+
+      margin-bottom:
+        8px;
+
+      font-weight:
+        800;
+
     }
+
 
     .step p {
-      color: var(--muted);
 
-      font-size: 13px;
+      color:
+        var(--muted);
 
-      line-height: 1.9;
+      font-size:
+        12px;
+
+      line-height:
+        1.9;
+
     }
 
+
     .step:not(:last-child)::after {
-      content: "";
 
-      position: absolute;
+      content:
+        "";
 
-      top: 45px;
+      position:
+        absolute;
 
-      right: 60%;
+      top:
+        45px;
 
-      width: 80%;
+      right:
+        60%;
+
+      width:
+        80%;
 
       border-top:
         1px dashed
         rgba(214,173,53,.55);
+
     }
 
-    /* =========================================================
-       PREMIUM SHOWCASE
-    ========================================================= */
+
+    /* =====================================================
+       SHOWCASE
+    ====================================================== */
 
     .showcase {
-      position: relative;
 
-      overflow: hidden;
+      position:
+        relative;
+
+      overflow:
+        hidden;
 
       background:
         radial-gradient(
@@ -1022,136 +1896,228 @@
           var(--bg)
         );
 
-      color: var(--cream);
+      color:
+        var(--cream);
+
     }
 
+
     .showcase-grid {
-      display: grid;
+
+      display:
+        grid;
 
       grid-template-columns:
         .9fr 1.1fr;
 
-      align-items: center;
+      align-items:
+        center;
 
-      gap: 70px;
+      gap:
+        70px;
+
     }
+
 
     .showcase .section-header {
-      margin-bottom: 25px;
+
+      margin-bottom:
+        25px;
+
     }
+
 
     .showcase .section-header h2 {
-      color: var(--cream);
+
+      color:
+        var(--cream);
+
     }
+
 
     .showcase .section-header p {
-      color: rgba(248,245,234,.65);
+
+      color:
+        rgba(248,245,234,.65);
+
     }
+
 
     .merchant-list {
-      display: flex;
 
-      flex-wrap: wrap;
+      display:
+        flex;
 
-      gap: 8px;
+      flex-wrap:
+        wrap;
+
+      gap:
+        8px;
+
     }
 
+
     .merchant {
-      padding: 8px 14px;
 
-      border-radius: 999px;
+      padding:
+        8px 14px;
 
-      border: 1px solid rgba(248,245,234,.12);
+      border-radius:
+        999px;
+
+      border:
+        1px solid
+        rgba(248,245,234,.12);
 
       background:
         rgba(255,255,255,.035);
 
-      color: rgba(248,245,234,.75);
+      color:
+        rgba(248,245,234,.75);
 
-      font-size: 11px;
+      font-size:
+        11px;
+
     }
 
+
     .stats-card {
-      padding: 26px;
 
-      border-radius: 27px;
+      padding:
+        26px;
 
-      border: 1px solid rgba(248,245,234,.1);
+      border-radius:
+        27px;
+
+      border:
+        1px solid
+        rgba(248,245,234,.1);
 
       background:
         rgba(255,255,255,.045);
 
-      backdrop-filter: blur(20px);
+      backdrop-filter:
+        blur(20px);
+
+      -webkit-backdrop-filter:
+        blur(20px);
 
       box-shadow:
-        0 30px 80px rgba(0,0,0,.22);
+        0 30px 80px
+        rgba(0,0,0,.22);
+
     }
 
+
     .stats-grid {
-      display: grid;
+
+      display:
+        grid;
 
       grid-template-columns:
         1fr 1fr;
 
-      gap: 12px;
+      gap:
+        12px;
+
     }
 
+
     .stat {
-      min-height: 145px;
 
-      padding: 23px;
+      min-height:
+        145px;
 
-      border-radius: 19px;
+      padding:
+        23px;
+
+      border-radius:
+        19px;
 
       background:
         rgba(255,255,255,.035);
 
-      border: 1px solid rgba(255,255,255,.07);
+      border:
+        1px solid
+        rgba(255,255,255,.07);
 
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      justify-content:
+        center;
+
     }
+
 
     .stat strong {
-      font-family: "El Messiri", sans-serif;
 
-      color: var(--gold-light);
+      color:
+        var(--gold-light);
 
-      font-size: 30px;
+      font-family:
+        "Inter",
+        sans-serif;
 
-      margin-bottom: 5px;
+      font-size:
+        30px;
+
+      margin-bottom:
+        5px;
+
     }
+
 
     .stat span {
-      color: rgba(248,245,234,.58);
 
-      font-size: 11px;
+      color:
+        rgba(248,245,234,.58);
+
+      font-size:
+        11px;
+
     }
 
-    /* =========================================================
+
+    /* =====================================================
        SECURITY
-    ========================================================= */
+    ====================================================== */
 
     .security {
-      background: #fff;
+
+      background:
+        #fff;
+
     }
 
+
     .security-grid {
-      display: grid;
+
+      display:
+        grid;
 
       grid-template-columns:
         1fr 1fr;
 
-      gap: 70px;
+      gap:
+        70px;
 
-      align-items: center;
+      align-items:
+        center;
+
     }
 
-    .security-box {
-      padding: 35px;
 
-      border-radius: 28px;
+    .security-box {
+
+      padding:
+        35px;
+
+      border-radius:
+        28px;
 
       background:
         linear-gradient(
@@ -1160,99 +2126,179 @@
           #ffffff
         );
 
-      border: 1px solid #e2ebe5;
+      border:
+        1px solid
+        #e2ebe5;
+
     }
+
 
     .security-main-icon {
-      width: 65px;
-      height: 65px;
 
-      border-radius: 19px;
+      width:
+        65px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      height:
+        65px;
 
-      background: var(--bg);
+      border-radius:
+        19px;
 
-      color: var(--gold-light);
+      display:
+        flex;
 
-      font-size: 27px;
+      align-items:
+        center;
 
-      margin-bottom: 25px;
+      justify-content:
+        center;
+
+      background:
+        var(--bg);
+
+      color:
+        var(--gold-light);
+
+      font-size:
+        27px;
+
+      margin-bottom:
+        25px;
+
     }
+
 
     .security-box h3 {
-      font-size: 22px;
 
-      margin-bottom: 12px;
+      font-size:
+        22px;
+
+      margin-bottom:
+        12px;
+
+      font-weight:
+        800;
+
     }
+
 
     .security-box p {
-      color: var(--muted);
 
-      font-size: 13px;
+      color:
+        var(--muted);
 
-      line-height: 1.9;
+      font-size:
+        13px;
+
+      line-height:
+        1.9;
+
     }
+
 
     .security-list {
-      margin-top: 25px;
 
-      display: grid;
+      margin-top:
+        25px;
 
-      gap: 12px;
+      display:
+        grid;
+
+      gap:
+        12px;
+
     }
+
 
     .security-list div {
-      display: flex;
-      align-items: center;
-      gap: 10px;
 
-      font-size: 12px;
+      display:
+        flex;
 
-      color: #4e6358;
+      align-items:
+        center;
+
+      gap:
+        10px;
+
+      font-size:
+        12px;
+
+      color:
+        #4e6358;
+
     }
+
 
     .check {
-      width: 22px;
-      height: 22px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width:
+        22px;
 
-      border-radius: 50%;
+      height:
+        22px;
 
-      background: #e3f2e9;
+      display:
+        flex;
 
-      color: var(--green);
+      align-items:
+        center;
 
-      font-size: 11px;
+      justify-content:
+        center;
+
+      flex:
+        0 0 22px;
+
+      border-radius:
+        50%;
+
+      background:
+        #e3f2e9;
+
+      color:
+        var(--green);
+
+      font-size:
+        11px;
+
     }
 
-    /* =========================================================
+
+    /* =====================================================
        DOWNLOAD
-    ========================================================= */
+    ====================================================== */
 
     .download {
-      background: var(--cream);
 
-      padding-top: 40px;
+      background:
+        var(--cream);
+
+      padding-top:
+        40px;
+
     }
 
+
     .download-box {
-      position: relative;
 
-      overflow: hidden;
+      position:
+        relative;
 
-      padding: 85px 40px;
+      overflow:
+        hidden;
 
-      border-radius: 35px;
+      padding:
+        85px 40px;
 
-      text-align: center;
+      border-radius:
+        35px;
 
-      color: var(--cream);
+      text-align:
+        center;
+
+      color:
+        var(--cream);
 
       background:
         radial-gradient(
@@ -1262,209 +2308,368 @@
         );
 
       box-shadow:
-        0 35px 80px rgba(7,27,18,.17);
+        0 35px 80px
+        rgba(7,27,18,.17);
+
     }
 
+
     .download-box::before {
-      content: "";
 
-      position: absolute;
+      content:
+        "";
 
-      width: 300px;
-      height: 300px;
+      position:
+        absolute;
 
-      border-radius: 50%;
+      width:
+        300px;
+
+      height:
+        300px;
+
+      border-radius:
+        50%;
 
       background:
         rgba(214,173,53,.1);
 
-      filter: blur(70px);
+      filter:
+        blur(70px);
 
-      top: -130px;
-      left: -100px;
+      top:
+        -130px;
+
+      left:
+        -100px;
+
     }
+
 
     .download-box h2 {
-      position: relative;
 
-      font-size: clamp(30px,4vw,46px);
+      position:
+        relative;
 
-      margin-bottom: 15px;
+      font-size:
+        clamp(
+          30px,
+          4vw,
+          46px
+        );
+
+      margin-bottom:
+        15px;
+
+      font-weight:
+        800;
+
     }
+
 
     .download-box p {
-      position: relative;
 
-      max-width: 560px;
+      position:
+        relative;
 
-      margin: auto auto 30px;
+      max-width:
+        560px;
 
-      color: rgba(248,245,234,.65);
+      margin:
+        auto auto 30px;
 
-      font-size: 14px;
+      color:
+        rgba(248,245,234,.65);
 
-      line-height: 1.9;
+      font-size:
+        14px;
+
+      line-height:
+        1.9;
+
     }
+
 
     .store-buttons {
-      position: relative;
 
-      display: flex;
+      position:
+        relative;
 
-      align-items: center;
-      justify-content: center;
+      display:
+        flex;
 
-      flex-wrap: wrap;
+      align-items:
+        center;
 
-      gap: 12px;
+      justify-content:
+        center;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        12px;
+
     }
+
 
     .store-button {
-      min-width: 190px;
 
-      padding: 13px 18px;
+      min-width:
+        190px;
 
-      border-radius: 14px;
+      padding:
+        13px 18px;
 
-      background: rgba(255,255,255,.08);
+      border-radius:
+        14px;
 
-      border: 1px solid rgba(255,255,255,.12);
+      background:
+        rgba(255,255,255,.08);
 
-      display: flex;
+      border:
+        1px solid
+        rgba(255,255,255,.12);
 
-      align-items: center;
+      display:
+        flex;
 
-      justify-content: center;
+      align-items:
+        center;
 
-      gap: 10px;
+      justify-content:
+        center;
 
-      color: white;
+      gap:
+        10px;
 
-      transition: var(--transition);
+      color:
+        white;
+
+      transition:
+        var(--transition);
+
     }
+
 
     .store-button:hover {
-      transform: translateY(-4px);
 
-      background: rgba(255,255,255,.13);
+      transform:
+        translateY(-4px);
+
+      background:
+        rgba(255,255,255,.13);
+
     }
 
-    .store-button .store-icon {
-      font-size: 25px;
+
+    .store-icon {
+
+      font-size:
+        25px;
+
     }
+
 
     .store-button small {
-      display: block;
 
-      text-align: right;
+      display:
+        block;
 
-      color: rgba(255,255,255,.55);
+      text-align:
+        right;
 
-      font-size: 8px;
+      color:
+        rgba(255,255,255,.55);
+
+      font-size:
+        8px;
+
     }
+
 
     .store-button strong {
-      display: block;
 
-      font-size: 14px;
+      display:
+        block;
+
+      font-size:
+        14px;
+
     }
 
-    /* =========================================================
+
+    /* =====================================================
        FOOTER
-    ========================================================= */
+    ====================================================== */
 
     footer {
-      padding: 45px 0 25px;
+
+      padding:
+        45px 0
+        25px;
 
       background:
         #04120c;
 
-      color: var(--cream);
+      color:
+        var(--cream);
+
     }
+
 
     .footer-top {
-      display: flex;
 
-      align-items: center;
+      display:
+        flex;
 
-      justify-content: space-between;
+      align-items:
+        center;
 
-      gap: 20px;
+      justify-content:
+        space-between;
 
-      padding-bottom: 28px;
+      gap:
+        20px;
+
+      padding-bottom:
+        28px;
 
       border-bottom:
-        1px solid rgba(255,255,255,.08);
+        1px solid
+        rgba(255,255,255,.08);
+
     }
+
 
     .footer-brand {
-      display: flex;
 
-      align-items: center;
+      display:
+        flex;
 
-      gap: 10px;
+      align-items:
+        center;
 
-      font-family: "El Messiri", sans-serif;
+      gap:
+        10px;
 
-      font-size: 20px;
-      font-weight: 700;
+      font-size:
+        20px;
+
+      font-weight:
+        800;
+
     }
+
+
+    .footer-brand img {
+
+      width:
+        38px;
+
+      height:
+        38px;
+
+      border-radius:
+        10px;
+
+      object-fit:
+        contain;
+
+    }
+
 
     .footer-links {
-      display: flex;
 
-      gap: 25px;
+      display:
+        flex;
 
-      color: rgba(248,245,234,.55);
+      gap:
+        25px;
 
-      font-size: 12px;
+      color:
+        rgba(248,245,234,.55);
+
+      font-size:
+        11px;
+
     }
+
 
     .footer-links a {
-      transition: var(--transition);
+
+      transition:
+        var(--transition);
+
     }
+
 
     .footer-links a:hover {
-      color: var(--gold-light);
+
+      color:
+        var(--gold-light);
+
     }
+
 
     .copyright {
-      text-align: center;
 
-      padding-top: 22px;
+      text-align:
+        center;
 
-      color: rgba(248,245,234,.3);
+      padding-top:
+        22px;
 
-      font-size: 10px;
+      color:
+        rgba(248,245,234,.3);
+
+      font-size:
+        10px;
+
     }
 
-    /* =========================================================
-       REVEAL ANIMATION
-    ========================================================= */
+
+    /* =====================================================
+       REVEAL
+    ====================================================== */
 
     .reveal {
-      opacity: 0;
 
-      transform: translateY(35px);
+      opacity:
+        0;
+
+      transform:
+        translateY(35px);
 
       transition:
         opacity .8s ease,
         transform .8s ease;
+
     }
+
 
     .reveal.visible {
-      opacity: 1;
 
-      transform: translateY(0);
+      opacity:
+        1;
+
+      transform:
+        translateY(0);
+
     }
 
-    /* =========================================================
-       ENGLISH MODE
-    ========================================================= */
+
+    /* =====================================================
+       LTR
+    ====================================================== */
 
     html[dir="ltr"] .hero h1 span::after {
-      left: 0;
-      right: auto;
+
+      left:
+        0;
+
+      right:
+        auto;
 
       background:
         linear-gradient(
@@ -1472,1083 +2677,662 @@
           transparent,
           var(--gold)
         );
+
     }
+
 
     html[dir="ltr"] .floating-card.one {
-      left: -5%;
-      right: auto;
+
+      left:
+        -5%;
+
+      right:
+        auto;
+
     }
+
 
     html[dir="ltr"] .floating-card.two {
-      right: -8%;
-      left: auto;
+
+      right:
+        -8%;
+
+      left:
+        auto;
+
     }
+
 
     html[dir="ltr"] .step:not(:last-child)::after {
-      left: 60%;
-      right: auto;
+
+      left:
+        60%;
+
+      right:
+        auto;
+
     }
+
 
     html[dir="ltr"] .store-button small {
-      text-align: left;
+
+      text-align:
+        left;
+
     }
 
-    /* =========================================================
-       RESPONSIVE
-    ========================================================= */
+
+    /* =====================================================
+       MOBILE MENU
+    ====================================================== */
 
     @media(max-width:1000px) {
 
       .nav-center {
-        display: none;
+
+        display:
+          none;
+
+        position:
+          absolute;
+
+        top:
+          76px;
+
+        left:
+          15px;
+
+        right:
+          15px;
+
+        padding:
+          20px;
+
+        border-radius:
+          20px;
+
+        background:
+          rgba(7,27,18,.98);
+
+        border:
+          1px solid
+          rgba(255,255,255,.10);
+
+        box-shadow:
+          0 25px 60px
+          rgba(0,0,0,.3);
+
+        flex-direction:
+          column;
+
+        align-items:
+          stretch;
+
+        gap:
+          4px;
+
       }
+
+
+      .nav-center.open {
+
+        display:
+          flex;
+
+      }
+
+
+      .nav-center a {
+
+        padding:
+          13px 10px;
+
+        border-radius:
+          10px;
+
+      }
+
+
+      .nav-center a:hover {
+
+        background:
+          rgba(255,255,255,.05);
+
+      }
+
+
+      .nav-center a::after {
+
+        display:
+          none;
+
+      }
+
 
       .mobile-menu {
-        display: block;
+
+        display:
+          flex;
+
+        align-items:
+          center;
+
+        justify-content:
+          center;
+
       }
+
 
       .hero {
-        padding-top: 150px;
+
+        padding-top:
+          150px;
+
       }
+
 
       .hero-grid {
-        grid-template-columns: 1fr;
 
-        text-align: center;
+        grid-template-columns:
+          1fr;
+
+        text-align:
+          center;
+
       }
+
 
       .hero-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+
+        display:
+          flex;
+
+        flex-direction:
+          column;
+
+        align-items:
+          center;
+
       }
+
 
       .hero-description {
-        margin-left: auto;
-        margin-right: auto;
+
+        margin-left:
+          auto;
+
+        margin-right:
+          auto;
+
       }
+
 
       .trust-row {
-        justify-content: center;
+
+        justify-content:
+          center;
+
       }
+
 
       .hero-visual {
-        order: -1;
+
+        order:
+          -1;
+
       }
+
 
       .features-grid {
+
         grid-template-columns:
           1fr 1fr;
+
       }
+
 
       .steps {
+
         grid-template-columns:
           1fr 1fr;
+
       }
 
+
       .step:not(:last-child)::after {
-        display: none;
+
+        display:
+          none;
+
       }
+
 
       .showcase-grid,
       .security-grid {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+          1fr;
+
       }
+
 
       .partners-inner {
-        overflow: hidden;
+
+        overflow:
+          hidden;
+
       }
 
+
       .partner:nth-child(n+4) {
-        display: none;
+
+        display:
+          none;
+
       }
+
     }
+
+
+    /* =====================================================
+       TABLET / MOBILE
+    ====================================================== */
 
     @media(max-width:650px) {
 
       .container,
       nav {
-        width: min(100% - 30px,1180px);
+
+        width:
+          min(
+            100% - 30px,
+            1180px
+          );
+
       }
+
+
+      nav {
+
+        height:
+          76px;
+
+      }
+
+
+      .brand {
+
+        font-size:
+          20px;
+
+      }
+
+
+      .brand-icon {
+
+        width:
+          38px;
+
+        height:
+          38px;
+
+      }
+
 
       .nav-download {
-        display: none;
+
+        display:
+          none;
+
       }
+
 
       .language-btn {
-        padding: 0 11px;
-      }
 
-      .hero {
-        min-height: auto;
+        height:
+          40px;
 
         padding:
-          130px 0
-          80px;
+          0 10px;
+
       }
+
+
+      .hero {
+
+        min-height:
+          auto;
+
+        padding:
+          125px 0
+          75px;
+
+      }
+
 
       .hero h1 {
-        font-size: 40px;
+
+        font-size:
+          38px;
+
+        line-height:
+          1.45;
+
       }
+
 
       .hero-description {
-        font-size: 15px;
+
+        font-size:
+          14px;
+
+        line-height:
+          2;
+
       }
 
+
       .hero-actions {
-        width: 100%;
-        flex-direction: column;
+
+        width:
+          100%;
+
+        flex-direction:
+          column;
+
       }
+
 
       .primary-btn,
       .secondary-btn {
-        width: 100%;
+
+        width:
+          100%;
+
       }
+
 
       .trust-row {
-        flex-wrap: wrap;
-        gap: 12px;
+
+        flex-wrap:
+          wrap;
+
+        gap:
+          12px;
+
       }
+
 
       .hero-visual {
-        min-height: 530px;
+
+        min-height:
+          520px;
+
       }
+
 
       .phone {
-        width: 270px;
-        height: 555px;
+
+        width:
+          265px;
+
+        height:
+          545px;
+
       }
 
-      .phone-screen-image {
-        border-radius: 40px;
-      }
 
       .floating-card {
-        transform: scale(.85);
+
+        transform:
+          scale(.82);
+
       }
+
 
       .floating-card.one {
-        right: -4%;
+
+        right:
+          -2%;
+
       }
 
+
       .floating-card.two {
-        left: -4%;
+
+        left:
+          -2%;
+
       }
+
 
       .features-grid,
       .steps,
       .stats-grid {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+          1fr;
+
       }
+
 
       .feature {
-        min-height: auto;
+
+        min-height:
+          auto;
+
       }
+
 
       section {
-        padding: 80px 0;
+
+        padding:
+          80px 0;
+
       }
+
 
       .section-header {
-        margin-bottom: 40px;
+
+        margin-bottom:
+          40px;
+
       }
+
+
+      .section-header h2 {
+
+        font-size:
+          30px;
+
+      }
+
 
       .stats-card {
-        padding: 15px;
+
+        padding:
+          15px;
+
       }
+
 
       .stat {
-        min-height: 120px;
+
+        min-height:
+          120px;
+
       }
+
 
       .download-box {
-        padding: 65px 20px;
-        border-radius: 25px;
+
+        padding:
+          65px 20px;
+
+        border-radius:
+          25px;
+
       }
+
 
       .store-button {
-        width: 100%;
+
+        width:
+          100%;
+
       }
+
 
       .footer-top {
-        flex-direction: column;
+
+        flex-direction:
+          column;
+
       }
+
 
       .footer-links {
-        flex-wrap: wrap;
-        justify-content: center;
+
+        flex-wrap:
+          wrap;
+
+        justify-content:
+          center;
+
+        gap:
+          15px 22px;
+
       }
 
+
       .partners {
-        display: none;
+
+        display:
+          none;
+
       }
+
     }
+
+
+    /* =====================================================
+       SMALL PHONES
+    ====================================================== */
+
+    @media(max-width:400px) {
+
+      .hero h1 {
+
+        font-size:
+          34px;
+
+      }
+
+
+      .phone {
+
+        width:
+          245px;
+
+        height:
+          505px;
+
+      }
+
+
+      .hero-visual {
+
+        min-height:
+          490px;
+
+      }
+
+
+      .floating-card {
+
+        transform:
+          scale(.72);
+
+      }
+
+    }
+
+
+    /* =====================================================
+       REDUCED MOTION
+    ====================================================== */
 
     @media(prefers-reduced-motion:reduce) {
 
       *,
       *::before,
       *::after {
-        animation: none !important;
-        transition: none !important;
-        scroll-behavior: auto !important;
+
+        animation:
+          none !important;
+
+        transition:
+          none !important;
+
+        scroll-behavior:
+          auto !important;
+
       }
 
+
       .reveal {
-        opacity: 1;
-        transform: none;
+
+        opacity:
+          1;
+
+        transform:
+          none;
+
       }
+
     }
 
   </style>
+
 </head>
+
 
 <body>
 
-<div class="noise"></div>
+  <div class="noise"></div>
 
-<!-- =========================================================
-     NAVBAR
-========================================================= -->
 
-<header id="header">
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
 
-  <nav>
+  <header id="header">
 
-<a href="#" class="brand">
-  <img src="images/icon.png" alt="سلة" class="brand-icon">
-  <span data-i18n="brand">سلة</span>
-</a>
-    <div class="nav-center">
-
-      <a href="#features" data-i18n="navFeatures">
-        المميزات
-      </a>
-
-      <a href="#how" data-i18n="navHow">
-        كيف يعمل
-      </a>
-
-      <a href="#merchants" data-i18n="navMerchants">
-        المتاجر
-      </a>
-
-      <a href="#security" data-i18n="navSecurity">
-        الأمان
-      </a>
-
-    </div>
-
-    <div class="nav-actions">
-
-      <button
-        class="language-btn"
-        id="languageToggle"
-        type="button"
-      >
-        🌐
-        <span id="languageText">English</span>
-      </button>
+    <nav>
 
       <a
-        href="#download"
-        class="nav-download"
-        data-i18n="navDownload"
+        href="#"
+        class="brand"
+        aria-label="Salla"
       >
-        حمّل التطبيق
-      </a>
 
-      <button
-        class="mobile-menu"
-        id="mobileMenu"
-        type="button"
-      >
-        ☰
-      </button>
-
-    </div>
-
-  </nav>
-
-</header>
-
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<section class="hero">
-
-  <div
-    class="glow"
-    style="top:-200px;right:-150px;"
-  ></div>
-
-  <div
-    class="glow gold"
-    style="bottom:-300px;left:-200px;"
-  ></div>
-
-  <div class="container hero-grid">
-
-    <div class="hero-content">
-
-      <span class="eyebrow">
-
-        <span class="eyebrow-dot"></span>
-
-        <span data-i18n="eyebrow">
-          منصة التسوق المحلية
-        </span>
-
-      </span>
-
-      <h1 data-i18n="heroTitle">
-        كل ما تحتاجه من
-        <span>متاجر غزة</span>
-        في مكان واحد
-      </h1>
-
-      <p
-        class="hero-description"
-        data-i18n="heroDescription"
-      >
-        سلة تجمع متاجرك المفضلة في تجربة واحدة بسيطة وسريعة.
-        اكتشف المنتجات، اطلب بسهولة، وادفع بأمان — وكن جزءًا
-        من دعم التجارة المحلية.
-      </p>
-
-      <div class="hero-actions">
-
-        <a
-          href="#download"
-          class="primary-btn"
-          data-i18n="heroPrimary"
+        <img
+          src="images/icon.png"
+          alt="سلة"
+          class="brand-icon"
         >
-          ↓ حمّل التطبيق
-        </a>
-
-        <a
-          href="#features"
-          class="secondary-btn"
-          data-i18n="heroSecondary"
-        >
-          اكتشف سلة ←
-        </a>
-
-      </div>
-
-      <div class="trust-row">
-
-        <div class="trust-item">
-          <span>✓</span>
-          <span data-i18n="trust1">
-            دفع آمن
-          </span>
-        </div>
-
-        <div class="trust-item">
-          <span>✓</span>
-          <span data-i18n="trust2">
-            متاجر محلية
-          </span>
-        </div>
-
-        <div class="trust-item">
-          <span>✓</span>
-          <span data-i18n="trust3">
-            تتبع الطلب
-          </span>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         PHONE
-         الصورة بدل تصميم شاشة التطبيق
-    ====================================================== -->
-
-    <div class="hero-visual">
-
-      <div class="phone-glow"></div>
-
-      <div class="floating-card one">
-
-        <div class="floating-icon">
-          🔒
-        </div>
-
-        <div>
-          <strong data-i18n="floatSecure">
-            دفع مشفّر
-          </strong>
-
-          <small data-i18n="floatSecureSmall">
-            حماية عالية
-          </small>
-        </div>
-
-      </div>
-
-
-      <div class="floating-card two">
-
-        <div class="floating-icon">
-          📍
-        </div>
-
-        <div>
-          <strong data-i18n="floatNearby">
-            متاجر قريبة
-          </strong>
-
-          <small data-i18n="floatNearbySmall">
-            حسب موقعك
-          </small>
-        </div>
-
-      </div>
-
-
-      <div class="phone">
-
-        <div class="phone-screen">
-
-          <!--
-            ضع Screenshot التطبيق هنا.
-
-            المسار الحالي:
-            images/app-screen.png
-
-            إذا كان اسم الصورة مختلفًا،
-            غيّر قيمة src فقط.
-          -->
-
-          <img
-            src="images/Screen.jpeg"
-            alt="Salla App"
-            class="phone-screen-image"
-          />
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     PARTNERS
-========================================================= -->
-
-<div class="partners">
-
-  <div class="container partners-inner">
-
-    <span
-      class="partners-label"
-      data-i18n="partnersLabel"
-    >
-      صُممت لدعم التجارة المحلية
-    </span>
-
-    <span class="partner">MARKET</span>
-    <span class="partner">LOCAL</span>
-    <span class="partner">SHOP</span>
-    <span class="partner">GAZA</span>
-
-  </div>
-
-</div>
-
-
-<!-- =========================================================
-     FEATURES
-========================================================= -->
-
-<section
-  class="features"
-  id="features"
->
-
-  <div class="container">
-
-    <div class="section-header reveal">
-
-      <span
-        class="section-label"
-        data-i18n="featuresLabel"
-      >
-        لماذا سلة؟
-      </span>
-
-      <h2 data-i18n="featuresTitle">
-        تجربة تسوّق صُممت لتكون
-        أسهل، أسرع وأقرب إليك
-      </h2>
-
-      <p data-i18n="featuresDescription">
-        كل شيء تحتاجه للتسوّق من المتاجر المحلية
-        في تجربة رقمية واحدة.
-      </p>
-
-    </div>
-
-
-    <div class="features-grid">
-
-      <div class="feature reveal">
-
-        <div class="feature-icon">
-          🏪
-        </div>
-
-        <h3 data-i18n="feature1Title">
-          متاجر محلية
-        </h3>
-
-        <p data-i18n="feature1Text">
-          اكتشف مجموعة واسعة من المتاجر المحلية
-          في مكان واحد.
-        </p>
-
-      </div>
-
-
-      <div class="feature reveal">
-
-        <div class="feature-icon">
-          ⚡
-        </div>
-
-        <h3 data-i18n="feature2Title">
-          طلب سريع
-        </h3>
-
-        <p data-i18n="feature2Text">
-          ابحث، اختر، أضف إلى السلة وأنهِ طلبك
-          خلال دقائق.
-        </p>
-
-      </div>
-
-
-      <div class="feature reveal">
-
-        <div class="feature-icon">
-          💳
-        </div>
-
-        <h3 data-i18n="feature3Title">
-          دفع آمن
-        </h3>
-
-        <p data-i18n="feature3Text">
-          طرق دفع متعددة مصممة لتوفير تجربة
-          آمنة وموثوقة.
-        </p>
-
-      </div>
-
-
-      <div class="feature reveal">
-
-        <div class="feature-icon">
-          📦
-        </div>
-
-        <h3 data-i18n="feature4Title">
-          تتبع الطلب
-        </h3>
-
-        <p data-i18n="feature4Text">
-          تابع حالة طلبك من لحظة تأكيده حتى
-          وصوله إليك.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     HOW IT WORKS
-========================================================= -->
-
-<section
-  class="how"
-  id="how"
->
-
-  <div class="container">
-
-    <div class="section-header reveal">
-
-      <span
-        class="section-label"
-        data-i18n="howLabel"
-      >
-        كيف يعمل؟
-      </span>
-
-      <h2 data-i18n="howTitle">
-        من البحث إلى باب بيتك
-        بأربع خطوات فقط
-      </h2>
-
-    </div>
-
-
-    <div class="steps">
-
-      <div class="step reveal">
-
-        <div class="step-number">
-          01
-        </div>
-
-        <h3 data-i18n="step1Title">
-          اكتشف
-        </h3>
-
-        <p data-i18n="step1Text">
-          ابحث عن المتجر أو المنتج الذي
-          تحتاجه.
-        </p>
-
-      </div>
-
-
-      <div class="step reveal">
-
-        <div class="step-number">
-          02
-        </div>
-
-        <h3 data-i18n="step2Title">
-          اختر
-        </h3>
-
-        <p data-i18n="step2Text">
-          تصفّح المنتجات واختر ما يناسبك
-          وأضفه إلى السلة.
-        </p>
-
-      </div>
-
-
-      <div class="step reveal">
-
-        <div class="step-number">
-          03
-        </div>
-
-        <h3 data-i18n="step3Title">
-          ادفع
-        </h3>
-
-        <p data-i18n="step3Text">
-          اختر طريقة الدفع المناسبة وأكمل
-          طلبك بأمان.
-        </p>
-
-      </div>
-
-
-      <div class="step reveal">
-
-        <div class="step-number">
-          04
-        </div>
-
-        <h3 data-i18n="step4Title">
-          استلم
-        </h3>
-
-        <p data-i18n="step4Text">
-          تابع طلبك واستلمه عند باب منزلك.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     MERCHANTS
-========================================================= -->
-
-<section
-  class="showcase"
-  id="merchants"
->
-
-  <div
-    class="glow"
-    style="right:-250px;top:-200px;"
-  ></div>
-
-
-  <div class="container showcase-grid">
-
-    <div class="reveal">
-
-      <div class="section-header">
-
-        <span
-          class="section-label"
-          style="color:var(--gold-light)"
-          data-i18n="merchantLabel"
-        >
-          منصة واحدة
-        </span>
-
-        <h2 data-i18n="merchantTitle">
-          كل أنواع المتاجر
-          التي تحبها في مكان واحد
-        </h2>
-
-        <p data-i18n="merchantText">
-          من المواد الغذائية والمطاعم إلى الأزياء
-          والإلكترونيات والمستلزمات المنزلية.
-          سلة تقرّبك من متاجر غزة.
-        </p>
-
-      </div>
-
-
-      <div class="merchant-list">
-
-        <span
-          class="merchant"
-          data-i18n="merchant1"
-        >
-          مواد غذائية
-        </span>
-
-        <span
-          class="merchant"
-          data-i18n="merchant2"
-        >
-          مطاعم
-        </span>
-
-        <span
-          class="merchant"
-          data-i18n="merchant3"
-        >
-          مخابز
-        </span>
-
-        <span
-          class="merchant"
-          data-i18n="merchant4"
-        >
-          أزياء
-        </span>
-
-        <span
-          class="merchant"
-          data-i18n="merchant5"
-        >
-          إلكترونيات
-        </span>
-
-        <span
-          class="merchant"
-          data-i18n="merchant6"
-        >
-          منزل
-        </span>
-
-      </div>
-
-    </div>
-
-
-    <div class="stats-card reveal">
-
-      <div class="stats-grid">
-
-        <div class="stat">
-
-          <strong>
-            +120
-          </strong>
-
-          <span data-i18n="stat1">
-            متجر محلي
-          </span>
-
-        </div>
-
-
-        <div class="stat">
-
-          <strong>
-            +30
-          </strong>
-
-          <span data-i18n="stat2">
-            منطقة تغطية
-          </span>
-
-        </div>
-
-
-        <div class="stat">
-
-          <strong>
-            24/7
-          </strong>
-
-          <span data-i18n="stat3">
-            متاح للتصفح والطلب
-          </span>
-
-        </div>
-
-
-        <div class="stat">
-
-          <strong>
-            100%
-          </strong>
-
-          <span data-i18n="stat4">
-            تجربة رقمية
-          </span>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     SECURITY
-========================================================= -->
-
-<section
-  class="security"
-  id="security"
->
-
-  <div class="container security-grid">
-
-    <div class="security-box reveal">
-
-      <div class="security-main-icon">
-        🔐
-      </div>
-
-      <h3 data-i18n="securityBoxTitle">
-        خصوصيتك وأمانك أولًا
-      </h3>
-
-      <p data-i18n="securityBoxText">
-        صممنا تجربة سلة بحيث تكون بياناتك وعمليات
-        الدفع محمية بأفضل الممارسات الأمنية.
-      </p>
-
-
-      <div class="security-list">
-
-        <div>
-
-          <span class="check">
-            ✓
-          </span>
-
-          <span data-i18n="security1">
-            حماية بيانات المستخدم
-          </span>
-
-        </div>
-
-
-        <div>
-
-          <span class="check">
-            ✓
-          </span>
-
-          <span data-i18n="security2">
-            عمليات دفع آمنة
-          </span>
-
-        </div>
-
-
-        <div>
-
-          <span class="check">
-            ✓
-          </span>
-
-          <span data-i18n="security3">
-            متابعة حالة الطلب
-          </span>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-header reveal">
-
-      <span
-        class="section-label"
-        data-i18n="securityLabel"
-      >
-        الثقة أولًا
-      </span>
-
-      <h2 data-i18n="securityTitle">
-        لأن تجربة التسوق الجيدة
-        تبدأ بالثقة
-      </h2>
-
-      <p data-i18n="securityText">
-        نعمل على جعل كل خطوة في رحلتك واضحة
-        وبسيطة وآمنة، من اختيار المنتج وحتى
-        استلام طلبك.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     DOWNLOAD
-========================================================= -->
-
-<section
-  class="download"
-  id="download"
->
-
-  <div class="container">
-
-    <div class="download-box reveal">
-
-      <h2 data-i18n="downloadTitle">
-        جاهز لتجربة سلة؟
-      </h2>
-
-      <p data-i18n="downloadText">
-        حمّل التطبيق وابدأ باكتشاف متاجر غزة
-        من مكان واحد.
-      </p>
-
-
-      <div class="store-buttons">
-
-        <a
-          href="#"
-          class="store-button"
-        >
-
-          <span class="store-icon">
-            
-          </span>
-
-          <span>
-
-            <small data-i18n="appStoreSmall">
-              حمّل من
-            </small>
-
-            <strong>
-              App Store
-            </strong>
-
-          </span>
-
-        </a>
-
-
-        <a
-          href="#"
-          class="store-button"
-        >
-
-          <span class="store-icon">
-            ▶
-          </span>
-
-          <span>
-
-            <small data-i18n="googleSmall">
-              احصل عليه من
-            </small>
-
-            <strong>
-              Google Play
-            </strong>
-
-          </span>
-
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer>
-
-  <div class="container">
-
-    <div class="footer-top">
-
-      <div class="footer-brand">
-
-        <span class="brand-mark">
-          س
-        </span>
 
         <span data-i18n="brand">
           سلة
         </span>
 
-      </div>
+      </a>
 
 
-      <div class="footer-links">
+      <div
+        class="nav-center"
+        id="navCenter"
+      >
 
         <a
           href="#features"
@@ -2572,726 +3356,1812 @@
         </a>
 
         <a
-          href="#download"
-          data-i18n="footerDownload"
+          href="#security"
+          data-i18n="navSecurity"
         >
-          تحميل التطبيق
+          الأمان
         </a>
+
+      </div>
+
+
+      <div class="nav-actions">
+
+        <button
+          class="language-btn"
+          id="languageToggle"
+          type="button"
+          aria-label="Change language"
+        >
+
+          <span>
+            🌐
+          </span>
+
+          <span id="languageText">
+            English
+          </span>
+
+        </button>
+
+
+        <a
+          href="#download"
+          class="nav-download"
+          data-i18n="navDownload"
+        >
+          حمّل التطبيق
+        </a>
+
+
+        <button
+          class="mobile-menu"
+          id="mobileMenu"
+          type="button"
+          aria-label="فتح القائمة"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+
+      </div>
+
+    </nav>
+
+  </header>
+
+
+  <!-- =====================================================
+       HERO
+  ====================================================== -->
+
+  <section class="hero">
+
+    <div
+      class="glow"
+      style="top:-200px;right:-150px;"
+    ></div>
+
+    <div
+      class="glow gold"
+      style="bottom:-300px;left:-200px;"
+    ></div>
+
+
+    <div class="container hero-grid">
+
+
+      <div class="hero-content">
+
+        <span class="eyebrow">
+
+          <span class="eyebrow-dot"></span>
+
+          <span data-i18n="eyebrow">
+            منصة التسوق المحلية
+          </span>
+
+        </span>
+
+
+        <h1 data-i18n="heroTitle">
+          كل ما تحتاجه من
+          <span>متاجر غزة</span>
+          في مكان واحد
+        </h1>
+
+
+        <p
+          class="hero-description"
+          data-i18n="heroDescription"
+        >
+          سلة تجمع متاجرك المفضلة في تجربة واحدة
+          بسيطة وسريعة. اكتشف المنتجات، اطلب بسهولة،
+          وادفع بأمان — وكن جزءًا من دعم التجارة المحلية.
+        </p>
+
+
+        <div class="hero-actions">
+
+          <a
+            href="#download"
+            class="primary-btn"
+            data-i18n="heroPrimary"
+          >
+            ↓ حمّل التطبيق
+          </a>
+
+
+          <a
+            href="#features"
+            class="secondary-btn"
+            data-i18n="heroSecondary"
+          >
+            اكتشف سلة ←
+          </a>
+
+        </div>
+
+
+        <div class="trust-row">
+
+          <div class="trust-item">
+
+            <span>✓</span>
+
+            <span data-i18n="trust1">
+              دفع آمن
+            </span>
+
+          </div>
+
+
+          <div class="trust-item">
+
+            <span>✓</span>
+
+            <span data-i18n="trust2">
+              متاجر محلية
+            </span>
+
+          </div>
+
+
+          <div class="trust-item">
+
+            <span>✓</span>
+
+            <span data-i18n="trust3">
+              تتبع الطلب
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- PHONE -->
+
+      <div class="hero-visual">
+
+        <div class="phone-glow"></div>
+
+
+        <div class="floating-card one">
+
+          <div class="floating-icon">
+            🔒
+          </div>
+
+          <div>
+
+            <strong data-i18n="floatSecure">
+              دفع مشفّر
+            </strong>
+
+            <small data-i18n="floatSecureSmall">
+              حماية عالية
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <div class="floating-card two">
+
+          <div class="floating-icon">
+            📍
+          </div>
+
+          <div>
+
+            <strong data-i18n="floatNearby">
+              متاجر قريبة
+            </strong>
+
+            <small data-i18n="floatNearbySmall">
+              حسب موقعك
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <div class="phone">
+
+          <div class="phone-screen">
+
+            <img
+              src="images/Screen.jpeg"
+              alt="واجهة تطبيق سلة"
+              class="phone-screen-image"
+            >
+
+          </div>
+
+        </div>
 
       </div>
 
     </div>
 
+  </section>
 
-    <div
-      class="copyright"
-      data-i18n="copyright"
-    >
-      © 2026 سلة — جميع الحقوق محفوظة.
+
+  <!-- =====================================================
+       PARTNERS
+  ====================================================== -->
+
+  <div class="partners">
+
+    <div class="container partners-inner">
+
+      <span
+        class="partners-label"
+        data-i18n="partnersLabel"
+      >
+        صُممت لدعم التجارة المحلية
+      </span>
+
+      <span class="partner">
+        MARKET
+      </span>
+
+      <span class="partner">
+        LOCAL
+      </span>
+
+      <span class="partner">
+        SHOP
+      </span>
+
+      <span class="partner">
+        GAZA
+      </span>
+
     </div>
 
   </div>
 
-</footer>
 
+  <!-- =====================================================
+       FEATURES
+  ====================================================== -->
 
-<script>
+  <section
+    class="features"
+    id="features"
+  >
 
-  /* =========================================================
-     LANGUAGE SYSTEM
-  ========================================================= */
+    <div class="container">
 
-  const translations = {
+      <div class="section-header reveal">
 
-    ar: {
+        <span
+          class="section-label"
+          data-i18n="featuresLabel"
+        >
+          لماذا سلة؟
+        </span>
 
-      pageTitle:
-        "سلة | تسوّق من متاجر غزة",
+        <h2 data-i18n="featuresTitle">
+          تجربة تسوّق صُممت لتكون
+          أسهل، أسرع وأقرب إليك
+        </h2>
 
-      brand:
-        "سلة",
+        <p data-i18n="featuresDescription">
+          كل شيء تحتاجه للتسوّق من المتاجر المحلية
+          في تجربة رقمية واحدة.
+        </p>
 
-      navFeatures:
-        "المميزات",
+      </div>
 
-      navHow:
-        "كيف يعمل",
 
-      navMerchants:
-        "المتاجر",
+      <div class="features-grid">
 
-      navSecurity:
-        "الأمان",
 
-      navDownload:
-        "حمّل التطبيق",
+        <div class="feature reveal">
 
-      eyebrow:
-        "منصة التسوق المحلية",
+          <div class="feature-icon">
+            🏪
+          </div>
 
-      heroTitle:
-        'كل ما تحتاجه من <span>متاجر غزة</span> في مكان واحد',
+          <h3 data-i18n="feature1Title">
+            متاجر محلية
+          </h3>
 
-      heroDescription:
-        "سلة تجمع متاجرك المفضلة في تجربة واحدة بسيطة وسريعة. اكتشف المنتجات، اطلب بسهولة، وادفع بأمان — وكن جزءًا من دعم التجارة المحلية.",
+          <p data-i18n="feature1Text">
+            اكتشف مجموعة واسعة من المتاجر المحلية
+            في مكان واحد.
+          </p>
 
-      heroPrimary:
-        "↓ حمّل التطبيق",
+        </div>
 
-      heroSecondary:
-        "اكتشف سلة ←",
 
-      trust1:
-        "دفع آمن",
+        <div class="feature reveal">
 
-      trust2:
-        "متاجر محلية",
+          <div class="feature-icon">
+            ⚡
+          </div>
 
-      trust3:
-        "تتبع الطلب",
+          <h3 data-i18n="feature2Title">
+            طلب سريع
+          </h3>
 
-      floatSecure:
-        "دفع مشفّر",
+          <p data-i18n="feature2Text">
+            ابحث، اختر، أضف إلى السلة وأنهِ طلبك
+            خلال دقائق.
+          </p>
 
-      floatSecureSmall:
-        "حماية عالية",
+        </div>
 
-      floatNearby:
-        "متاجر قريبة",
 
-      floatNearbySmall:
-        "حسب موقعك",
+        <div class="feature reveal">
 
-      partnersLabel:
-        "صُممت لدعم التجارة المحلية",
+          <div class="feature-icon">
+            💳
+          </div>
 
-      featuresLabel:
-        "لماذا سلة؟",
+          <h3 data-i18n="feature3Title">
+            دفع آمن
+          </h3>
 
-      featuresTitle:
-        "تجربة تسوّق صُممت لتكون أسهل، أسرع وأقرب إليك",
+          <p data-i18n="feature3Text">
+            طرق دفع متعددة مصممة لتوفير تجربة
+            آمنة وموثوقة.
+          </p>
 
-      featuresDescription:
-        "كل شيء تحتاجه للتسوّق من المتاجر المحلية في تجربة رقمية واحدة.",
+        </div>
 
-      feature1Title:
-        "متاجر محلية",
 
-      feature1Text:
-        "اكتشف مجموعة واسعة من المتاجر المحلية في مكان واحد.",
+        <div class="feature reveal">
 
-      feature2Title:
-        "طلب سريع",
+          <div class="feature-icon">
+            📦
+          </div>
 
-      feature2Text:
-        "ابحث، اختر، أضف إلى السلة وأنهِ طلبك خلال دقائق.",
+          <h3 data-i18n="feature4Title">
+            تتبع الطلب
+          </h3>
 
-      feature3Title:
-        "دفع آمن",
+          <p data-i18n="feature4Text">
+            تابع حالة طلبك من لحظة تأكيده حتى
+            وصوله إليك.
+          </p>
 
-      feature3Text:
-        "طرق دفع متعددة مصممة لتوفير تجربة آمنة وموثوقة.",
+        </div>
 
-      feature4Title:
-        "تتبع الطلب",
+      </div>
 
-      feature4Text:
-        "تابع حالة طلبك من لحظة تأكيده حتى وصوله إليك.",
+    </div>
 
-      howLabel:
-        "كيف يعمل؟",
+  </section>
 
-      howTitle:
-        "من البحث إلى باب بيتك بأربع خطوات فقط",
 
-      step1Title:
-        "اكتشف",
+  <!-- =====================================================
+       HOW IT WORKS
+  ====================================================== -->
 
-      step1Text:
-        "ابحث عن المتجر أو المنتج الذي تحتاجه.",
+  <section
+    class="how"
+    id="how"
+  >
 
-      step2Title:
-        "اختر",
+    <div class="container">
 
-      step2Text:
-        "تصفّح المنتجات واختر ما يناسبك وأضفه إلى السلة.",
+      <div class="section-header reveal">
 
-      step3Title:
-        "ادفع",
+        <span
+          class="section-label"
+          data-i18n="howLabel"
+        >
+          كيف يعمل؟
+        </span>
 
-      step3Text:
-        "اختر طريقة الدفع المناسبة وأكمل طلبك بأمان.",
+        <h2 data-i18n="howTitle">
+          من البحث إلى باب بيتك
+          بأربع خطوات فقط
+        </h2>
 
-      step4Title:
-        "استلم",
+      </div>
 
-      step4Text:
-        "تابع طلبك واستلمه عند باب منزلك.",
 
-      merchantLabel:
-        "منصة واحدة",
+      <div class="steps">
 
-      merchantTitle:
-        "كل أنواع المتاجر التي تحبها في مكان واحد",
 
-      merchantText:
-        "من المواد الغذائية والمطاعم إلى الأزياء والإلكترونيات والمستلزمات المنزلية. سلة تقرّبك من متاجر غزة.",
+        <div class="step reveal">
 
-      merchant1:
-        "مواد غذائية",
+          <div class="step-number">
+            01
+          </div>
 
-      merchant2:
-        "مطاعم",
+          <h3 data-i18n="step1Title">
+            اكتشف
+          </h3>
 
-      merchant3:
-        "مخابز",
+          <p data-i18n="step1Text">
+            ابحث عن المتجر أو المنتج الذي
+            تحتاجه.
+          </p>
 
-      merchant4:
-        "أزياء",
+        </div>
 
-      merchant5:
-        "إلكترونيات",
 
-      merchant6:
-        "منزل",
+        <div class="step reveal">
 
-      stat1:
-        "متجر محلي",
+          <div class="step-number">
+            02
+          </div>
 
-      stat2:
-        "منطقة تغطية",
+          <h3 data-i18n="step2Title">
+            اختر
+          </h3>
 
-      stat3:
-        "متاح للتصفح والطلب",
+          <p data-i18n="step2Text">
+            تصفّح المنتجات واختر ما يناسبك
+            وأضفه إلى السلة.
+          </p>
 
-      stat4:
-        "تجربة رقمية",
+        </div>
 
-      securityLabel:
-        "الثقة أولًا",
 
-      securityTitle:
-        "لأن تجربة التسوق الجيدة تبدأ بالثقة",
+        <div class="step reveal">
 
-      securityText:
-        "نعمل على جعل كل خطوة في رحلتك واضحة وبسيطة وآمنة، من اختيار المنتج وحتى استلام طلبك.",
+          <div class="step-number">
+            03
+          </div>
 
-      securityBoxTitle:
-        "خصوصيتك وأمانك أولًا",
+          <h3 data-i18n="step3Title">
+            ادفع
+          </h3>
 
-      securityBoxText:
-        "صممنا تجربة سلة بحيث تكون بياناتك وعمليات الدفع محمية بأفضل الممارسات الأمنية.",
+          <p data-i18n="step3Text">
+            اختر طريقة الدفع المناسبة وأكمل
+            طلبك بأمان.
+          </p>
 
-      security1:
-        "حماية بيانات المستخدم",
+        </div>
 
-      security2:
-        "عمليات دفع آمنة",
 
-      security3:
-        "متابعة حالة الطلب",
+        <div class="step reveal">
 
-      downloadTitle:
-        "جاهز لتجربة سلة؟",
+          <div class="step-number">
+            04
+          </div>
 
-      downloadText:
-        "حمّل التطبيق وابدأ باكتشاف متاجر غزة من مكان واحد.",
+          <h3 data-i18n="step4Title">
+            استلم
+          </h3>
 
-      appStoreSmall:
-        "حمّل من",
+          <p data-i18n="step4Text">
+            تابع طلبك واستلمه عند باب منزلك.
+          </p>
 
-      googleSmall:
-        "احصل عليه من",
+        </div>
 
-      footerDownload:
-        "تحميل التطبيق",
+      </div>
 
-      copyright:
-        "© 2026 سلة — جميع الحقوق محفوظة."
+    </div>
 
-    },
+  </section>
 
 
-    en: {
+  <!-- =====================================================
+       MERCHANTS
+  ====================================================== -->
 
-      pageTitle:
-        "Salla | Shop Local Stores in Gaza",
+  <section
+    class="showcase"
+    id="merchants"
+  >
 
-      brand:
-        "Salla",
+    <div
+      class="glow"
+      style="right:-250px;top:-200px;"
+    ></div>
 
-      navFeatures:
-        "Features",
 
-      navHow:
-        "How It Works",
+    <div class="container showcase-grid">
 
-      navMerchants:
-        "Stores",
 
-      navSecurity:
-        "Security",
+      <div class="reveal">
 
-      navDownload:
-        "Download App",
+        <div class="section-header">
 
-      eyebrow:
-        "The Local Shopping Platform",
+          <span
+            class="section-label"
+            style="color:var(--gold-light)"
+            data-i18n="merchantLabel"
+          >
+            منصة واحدة
+          </span>
 
-      heroTitle:
-        'Everything You Need From <span>Gaza Stores</span> In One Place',
+          <h2 data-i18n="merchantTitle">
+            كل أنواع المتاجر
+            التي تحبها في مكان واحد
+          </h2>
 
-      heroDescription:
-        "Salla brings your favorite local stores together in one simple and fast experience. Discover products, order with ease, and pay securely — while supporting local businesses.",
+          <p data-i18n="merchantText">
+            من المواد الغذائية والمطاعم إلى الأزياء
+            والإلكترونيات والمستلزمات المنزلية.
+            سلة تقرّبك من متاجر غزة.
+          </p>
 
-      heroPrimary:
-        "↓ Download App",
+        </div>
 
-      heroSecondary:
-        "Discover Salla →",
 
-      trust1:
-        "Secure Payments",
+        <div class="merchant-list">
 
-      trust2:
-        "Local Stores",
+          <span
+            class="merchant"
+            data-i18n="merchant1"
+          >
+            مواد غذائية
+          </span>
 
-      trust3:
-        "Order Tracking",
+          <span
+            class="merchant"
+            data-i18n="merchant2"
+          >
+            مطاعم
+          </span>
 
-      floatSecure:
-        "Encrypted Payment",
+          <span
+            class="merchant"
+            data-i18n="merchant3"
+          >
+            مخابز
+          </span>
 
-      floatSecureSmall:
-        "Advanced protection",
+          <span
+            class="merchant"
+            data-i18n="merchant4"
+          >
+            أزياء
+          </span>
 
-      floatNearby:
-        "Nearby Stores",
+          <span
+            class="merchant"
+            data-i18n="merchant5"
+          >
+            إلكترونيات
+          </span>
 
-      floatNearbySmall:
-        "Based on your location",
+          <span
+            class="merchant"
+            data-i18n="merchant6"
+          >
+            منزل
+          </span>
 
-      partnersLabel:
-        "Built to support local commerce",
+        </div>
 
-      featuresLabel:
-        "WHY SALLA?",
+      </div>
 
-      featuresTitle:
-        "A Shopping Experience Designed To Be Easier, Faster & Closer",
 
-      featuresDescription:
-        "Everything you need to shop from local stores in one digital experience.",
+      <div class="stats-card reveal">
 
-      feature1Title:
-        "Local Stores",
+        <div class="stats-grid">
 
-      feature1Text:
-        "Discover a wide range of local stores all in one place.",
 
-      feature2Title:
-        "Fast Ordering",
+          <div class="stat">
 
-      feature2Text:
-        "Search, choose, add to cart and complete your order in minutes.",
+            <strong>
+              +120
+            </strong>
 
-      feature3Title:
-        "Secure Payments",
+            <span data-i18n="stat1">
+              متجر محلي
+            </span>
 
-      feature3Text:
-        "Multiple payment methods designed for a safe and trusted experience.",
+          </div>
 
-      feature4Title:
-        "Order Tracking",
 
-      feature4Text:
-        "Track your order from confirmation until it reaches your door.",
+          <div class="stat">
 
-      howLabel:
-        "HOW IT WORKS",
+            <strong>
+              +30
+            </strong>
 
-      howTitle:
-        "From Search To Your Door In Just Four Steps",
+            <span data-i18n="stat2">
+              منطقة تغطية
+            </span>
 
-      step1Title:
-        "Discover",
+          </div>
 
-      step1Text:
-        "Find the store or product you're looking for.",
 
-      step2Title:
-        "Choose",
+          <div class="stat">
 
-      step2Text:
-        "Browse products, choose what you need and add it to your cart.",
+            <strong>
+              24/7
+            </strong>
 
-      step3Title:
-        "Pay",
+            <span data-i18n="stat3">
+              متاح للتصفح والطلب
+            </span>
 
-      step3Text:
-        "Choose your preferred payment method and complete your order securely.",
+          </div>
 
-      step4Title:
-        "Receive",
 
-      step4Text:
-        "Track your order and receive it at your doorstep.",
+          <div class="stat">
 
-      merchantLabel:
-        "ONE PLATFORM",
+            <strong>
+              100%
+            </strong>
 
-      merchantTitle:
-        "Every Type Of Store You Love, In One Place",
+            <span data-i18n="stat4">
+              تجربة رقمية
+            </span>
 
-      merchantText:
-        "From groceries and restaurants to fashion, electronics and home essentials. Salla brings Gaza's local stores closer to you.",
+          </div>
 
-      merchant1:
-        "Groceries",
 
-      merchant2:
-        "Restaurants",
+        </div>
 
-      merchant3:
-        "Bakeries",
+      </div>
 
-      merchant4:
-        "Fashion",
+    </div>
 
-      merchant5:
-        "Electronics",
+  </section>
 
-      merchant6:
-        "Home",
 
-      stat1:
-        "Local Stores",
+  <!-- =====================================================
+       SECURITY
+  ====================================================== -->
 
-      stat2:
-        "Coverage Areas",
+  <section
+    class="security"
+    id="security"
+  >
 
-      stat3:
-        "Available 24/7",
+    <div class="container security-grid">
 
-      stat4:
-        "Digital Experience",
 
-      securityLabel:
-        "TRUST FIRST",
+      <div class="security-box reveal">
 
-      securityTitle:
-        "Because A Great Shopping Experience Starts With Trust",
+        <div class="security-main-icon">
+          🔐
+        </div>
 
-      securityText:
-        "We make every step of your journey clear, simple and secure — from choosing a product to receiving your order.",
+        <h3 data-i18n="securityBoxTitle">
+          خصوصيتك وأمانك أولًا
+        </h3>
 
-      securityBoxTitle:
-        "Your Privacy & Security Come First",
+        <p data-i18n="securityBoxText">
+          صممنا تجربة سلة بحيث تكون بياناتك
+          وعمليات الدفع محمية بأفضل الممارسات الأمنية.
+        </p>
 
-      securityBoxText:
-        "Salla is designed with security in mind, helping protect your information and payment experience.",
 
-      security1:
-        "User data protection",
+        <div class="security-list">
 
-      security2:
-        "Secure payment processes",
 
-      security3:
-        "Real-time order status",
+          <div>
 
-      downloadTitle:
-        "Ready To Experience Salla?",
+            <span class="check">
+              ✓
+            </span>
 
-      downloadText:
-        "Download the app and start discovering Gaza's local stores in one place.",
+            <span data-i18n="security1">
+              حماية بيانات المستخدم
+            </span>
 
-      appStoreSmall:
-        "Download on the",
+          </div>
 
-      googleSmall:
-        "GET IT ON",
 
-      footerDownload:
-        "Download App",
+          <div>
 
-      copyright:
-        "© 2026 Salla — All Rights Reserved."
+            <span class="check">
+              ✓
+            </span>
 
-    }
+            <span data-i18n="security2">
+              عمليات دفع آمنة
+            </span>
 
-  };
+          </div>
 
 
-  /* =========================================================
-     LANGUAGE
-  ========================================================= */
+          <div>
 
-  let currentLanguage =
-    localStorage.getItem("salla-language") || "ar";
+            <span class="check">
+              ✓
+            </span>
 
+            <span data-i18n="security3">
+              متابعة حالة الطلب
+            </span>
 
-  function setLanguage(language) {
+          </div>
 
-    currentLanguage = language;
 
-    document.documentElement.lang = language;
+        </div>
 
-    document.documentElement.dir =
-      language === "ar"
-        ? "rtl"
-        : "ltr";
+      </div>
 
 
-    document
-      .querySelectorAll("[data-i18n]")
-      .forEach(element => {
+      <div class="section-header reveal">
 
-        const key =
-          element.getAttribute("data-i18n");
+        <span
+          class="section-label"
+          data-i18n="securityLabel"
+        >
+          الثقة أولًا
+        </span>
 
-        if (
-          translations[language] &&
-          translations[language][key]
-        ) {
+        <h2 data-i18n="securityTitle">
+          لأن تجربة التسوق الجيدة
+          تبدأ بالثقة
+        </h2>
 
-          element.innerHTML =
-            translations[language][key];
+        <p data-i18n="securityText">
+          نعمل على جعل كل خطوة في رحلتك واضحة
+          وبسيطة وآمنة، من اختيار المنتج وحتى
+          استلام طلبك.
+        </p>
 
-        }
+      </div>
 
-      });
+    </div>
 
+  </section>
 
-    document.title =
-      translations[language].pageTitle;
 
+  <!-- =====================================================
+       DOWNLOAD
+  ====================================================== -->
 
-    document.getElementById(
-      "languageText"
-    ).textContent =
-      language === "ar"
-        ? "English"
-        : "العربية";
+  <section
+    class="download"
+    id="download"
+  >
 
+    <div class="container">
 
-    localStorage.setItem(
-      "salla-language",
-      language
-    );
+      <div class="download-box reveal">
 
-  }
+        <h2 data-i18n="downloadTitle">
+          جاهز لتجربة سلة؟
+        </h2>
 
+        <p data-i18n="downloadText">
+          حمّل التطبيق وابدأ باكتشاف متاجر غزة
+          من مكان واحد.
+        </p>
 
-  document
-    .getElementById("languageToggle")
-    .addEventListener("click", () => {
 
-      setLanguage(
-        currentLanguage === "ar"
-          ? "en"
-          : "ar"
-      );
+        <div class="store-buttons">
 
-    });
 
+          <!-- APP STORE -->
 
-  setLanguage(currentLanguage);
+          <a
+            href="YOUR_APP_STORE_LINK"
+            class="store-button"
+            target="_blank"
+            rel="noopener"
+          >
 
+            <span class="store-icon">
+              
+            </span>
 
-  /* =========================================================
-     HEADER SCROLL
-  ========================================================= */
+            <span>
 
-  const header =
-    document.getElementById("header");
+              <small data-i18n="appStoreSmall">
+                حمّل من
+              </small>
 
+              <strong>
+                App Store
+              </strong>
 
-  window.addEventListener(
-    "scroll",
-    () => {
+            </span>
 
-      if (window.scrollY > 30) {
+          </a>
 
-        header.classList.add("scrolled");
 
-      } else {
+          <!-- GOOGLE PLAY -->
 
-        header.classList.remove("scrolled");
+          <a
+            href="YOUR_GOOGLE_PLAY_LINK"
+            class="store-button"
+            target="_blank"
+            rel="noopener"
+          >
+
+            <span class="store-icon">
+              ▶
+            </span>
+
+            <span>
+
+              <small data-i18n="googleSmall">
+                احصل عليه من
+              </small>
+
+              <strong>
+                Google Play
+              </strong>
+
+            </span>
+
+          </a>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-top">
+
+
+        <div class="footer-brand">
+
+          <img
+            src="images/icon.png"
+            alt="سلة"
+          >
+
+          <span data-i18n="brand">
+            سلة
+          </span>
+
+        </div>
+
+
+        <div class="footer-links">
+
+          <a
+            href="#features"
+            data-i18n="navFeatures"
+          >
+            المميزات
+          </a>
+
+          <a
+            href="#how"
+            data-i18n="navHow"
+          >
+            كيف يعمل
+          </a>
+
+          <a
+            href="#merchants"
+            data-i18n="navMerchants"
+          >
+            المتاجر
+          </a>
+
+          <a
+            href="#download"
+            data-i18n="footerDownload"
+          >
+            تحميل التطبيق
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="copyright"
+        data-i18n="copyright"
+      >
+        © 2026 سلة — جميع الحقوق محفوظة.
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script>
+
+    /* =====================================================
+       TRANSLATIONS
+    ====================================================== */
+
+    const translations = {
+
+      ar: {
+
+        pageTitle:
+          "سلة | تسوّق من متاجر غزة",
+
+        brand:
+          "سلة",
+
+        navFeatures:
+          "المميزات",
+
+        navHow:
+          "كيف يعمل",
+
+        navMerchants:
+          "المتاجر",
+
+        navSecurity:
+          "الأمان",
+
+        navDownload:
+          "حمّل التطبيق",
+
+        eyebrow:
+          "منصة التسوق المحلية",
+
+        heroTitle:
+          'كل ما تحتاجه من <span>متاجر غزة</span> في مكان واحد',
+
+        heroDescription:
+          "سلة تجمع متاجرك المفضلة في تجربة واحدة بسيطة وسريعة. اكتشف المنتجات، اطلب بسهولة، وادفع بأمان — وكن جزءًا من دعم التجارة المحلية.",
+
+        heroPrimary:
+          "↓ حمّل التطبيق",
+
+        heroSecondary:
+          "اكتشف سلة ←",
+
+        trust1:
+          "دفع آمن",
+
+        trust2:
+          "متاجر محلية",
+
+        trust3:
+          "تتبع الطلب",
+
+        floatSecure:
+          "دفع مشفّر",
+
+        floatSecureSmall:
+          "حماية عالية",
+
+        floatNearby:
+          "متاجر قريبة",
+
+        floatNearbySmall:
+          "حسب موقعك",
+
+        partnersLabel:
+          "صُممت لدعم التجارة المحلية",
+
+        featuresLabel:
+          "لماذا سلة؟",
+
+        featuresTitle:
+          "تجربة تسوّق صُممت لتكون أسهل، أسرع وأقرب إليك",
+
+        featuresDescription:
+          "كل شيء تحتاجه للتسوّق من المتاجر المحلية في تجربة رقمية واحدة.",
+
+        feature1Title:
+          "متاجر محلية",
+
+        feature1Text:
+          "اكتشف مجموعة واسعة من المتاجر المحلية في مكان واحد.",
+
+        feature2Title:
+          "طلب سريع",
+
+        feature2Text:
+          "ابحث، اختر، أضف إلى السلة وأنهِ طلبك خلال دقائق.",
+
+        feature3Title:
+          "دفع آمن",
+
+        feature3Text:
+          "طرق دفع متعددة مصممة لتوفير تجربة آمنة وموثوقة.",
+
+        feature4Title:
+          "تتبع الطلب",
+
+        feature4Text:
+          "تابع حالة طلبك من لحظة تأكيده حتى وصوله إليك.",
+
+        howLabel:
+          "كيف يعمل؟",
+
+        howTitle:
+          "من البحث إلى باب بيتك بأربع خطوات فقط",
+
+        step1Title:
+          "اكتشف",
+
+        step1Text:
+          "ابحث عن المتجر أو المنتج الذي تحتاجه.",
+
+        step2Title:
+          "اختر",
+
+        step2Text:
+          "تصفّح المنتجات واختر ما يناسبك وأضفه إلى السلة.",
+
+        step3Title:
+          "ادفع",
+
+        step3Text:
+          "اختر طريقة الدفع المناسبة وأكمل طلبك بأمان.",
+
+        step4Title:
+          "استلم",
+
+        step4Text:
+          "تابع طلبك واستلمه عند باب منزلك.",
+
+        merchantLabel:
+          "منصة واحدة",
+
+        merchantTitle:
+          "كل أنواع المتاجر التي تحبها في مكان واحد",
+
+        merchantText:
+          "من المواد الغذائية والمطاعم إلى الأزياء والإلكترونيات والمستلزمات المنزلية. سلة تقرّبك من متاجر غزة.",
+
+        merchant1:
+          "مواد غذائية",
+
+        merchant2:
+          "مطاعم",
+
+        merchant3:
+          "مخابز",
+
+        merchant4:
+          "أزياء",
+
+        merchant5:
+          "إلكترونيات",
+
+        merchant6:
+          "منزل",
+
+        stat1:
+          "متجر محلي",
+
+        stat2:
+          "منطقة تغطية",
+
+        stat3:
+          "متاح للتصفح والطلب",
+
+        stat4:
+          "تجربة رقمية",
+
+        securityLabel:
+          "الثقة أولًا",
+
+        securityTitle:
+          "لأن تجربة التسوق الجيدة تبدأ بالثقة",
+
+        securityText:
+          "نعمل على جعل كل خطوة في رحلتك واضحة وبسيطة وآمنة، من اختيار المنتج وحتى استلام طلبك.",
+
+        securityBoxTitle:
+          "خصوصيتك وأمانك أولًا",
+
+        securityBoxText:
+          "صممنا تجربة سلة بحيث تكون بياناتك وعمليات الدفع محمية بأفضل الممارسات الأمنية.",
+
+        security1:
+          "حماية بيانات المستخدم",
+
+        security2:
+          "عمليات دفع آمنة",
+
+        security3:
+          "متابعة حالة الطلب",
+
+        downloadTitle:
+          "جاهز لتجربة سلة؟",
+
+        downloadText:
+          "حمّل التطبيق وابدأ باكتشاف متاجر غزة من مكان واحد.",
+
+        appStoreSmall:
+          "حمّل من",
+
+        googleSmall:
+          "احصل عليه من",
+
+        footerDownload:
+          "تحميل التطبيق",
+
+        copyright:
+          "© 2026 سلة — جميع الحقوق محفوظة."
+
+      },
+
+
+      en: {
+
+        pageTitle:
+          "Salla | Shop Local Stores in Gaza",
+
+        brand:
+          "Salla",
+
+        navFeatures:
+          "Features",
+
+        navHow:
+          "How It Works",
+
+        navMerchants:
+          "Stores",
+
+        navSecurity:
+          "Security",
+
+        navDownload:
+          "Download App",
+
+        eyebrow:
+          "The Local Shopping Platform",
+
+        heroTitle:
+          'Everything You Need From <span>Gaza Stores</span> In One Place',
+
+        heroDescription:
+          "Salla brings your favorite local stores together in one simple and fast experience. Discover products, order with ease, and pay securely — while supporting local businesses.",
+
+        heroPrimary:
+          "↓ Download App",
+
+        heroSecondary:
+          "Discover Salla →",
+
+        trust1:
+          "Secure Payments",
+
+        trust2:
+          "Local Stores",
+
+        trust3:
+          "Order Tracking",
+
+        floatSecure:
+          "Encrypted Payment",
+
+        floatSecureSmall:
+          "Advanced protection",
+
+        floatNearby:
+          "Nearby Stores",
+
+        floatNearbySmall:
+          "Based on your location",
+
+        partnersLabel:
+          "Built to support local commerce",
+
+        featuresLabel:
+          "WHY SALLA?",
+
+        featuresTitle:
+          "A Shopping Experience Designed To Be Easier, Faster & Closer",
+
+        featuresDescription:
+          "Everything you need to shop from local stores in one digital experience.",
+
+        feature1Title:
+          "Local Stores",
+
+        feature1Text:
+          "Discover a wide range of local stores all in one place.",
+
+        feature2Title:
+          "Fast Ordering",
+
+        feature2Text:
+          "Search, choose, add to cart and complete your order in minutes.",
+
+        feature3Title:
+          "Secure Payments",
+
+        feature3Text:
+          "Multiple payment methods designed for a safe and trusted experience.",
+
+        feature4Title:
+          "Order Tracking",
+
+        feature4Text:
+          "Track your order from confirmation until it reaches your door.",
+
+        howLabel:
+          "HOW IT WORKS",
+
+        howTitle:
+          "From Search To Your Door In Just Four Steps",
+
+        step1Title:
+          "Discover",
+
+        step1Text:
+          "Find the store or product you're looking for.",
+
+        step2Title:
+          "Choose",
+
+        step2Text:
+          "Browse products, choose what you need and add it to your cart.",
+
+        step3Title:
+          "Pay",
+
+        step3Text:
+          "Choose your preferred payment method and complete your order securely.",
+
+        step4Title:
+          "Receive",
+
+        step4Text:
+          "Track your order and receive it at your doorstep.",
+
+        merchantLabel:
+          "ONE PLATFORM",
+
+        merchantTitle:
+          "Every Type Of Store You Love, In One Place",
+
+        merchantText:
+          "From groceries and restaurants to fashion, electronics and home essentials. Salla brings Gaza's local stores closer to you.",
+
+        merchant1:
+          "Groceries",
+
+        merchant2:
+          "Restaurants",
+
+        merchant3:
+          "Bakeries",
+
+        merchant4:
+          "Fashion",
+
+        merchant5:
+          "Electronics",
+
+        merchant6:
+          "Home",
+
+        stat1:
+          "Local Stores",
+
+        stat2:
+          "Coverage Areas",
+
+        stat3:
+          "Available 24/7",
+
+        stat4:
+          "Digital Experience",
+
+        securityLabel:
+          "TRUST FIRST",
+
+        securityTitle:
+          "Because A Great Shopping Experience Starts With Trust",
+
+        securityText:
+          "We make every step of your journey clear, simple and secure — from choosing a product to receiving your order.",
+
+        securityBoxTitle:
+          "Your Privacy & Security Come First",
+
+        securityBoxText:
+          "Salla is designed with security in mind, helping protect your information and payment experience.",
+
+        security1:
+          "User data protection",
+
+        security2:
+          "Secure payment processes",
+
+        security3:
+          "Real-time order status",
+
+        downloadTitle:
+          "Ready To Experience Salla?",
+
+        downloadText:
+          "Download the app and start discovering Gaza's local stores in one place.",
+
+        appStoreSmall:
+          "Download on the",
+
+        googleSmall:
+          "GET IT ON",
+
+        footerDownload:
+          "Download App",
+
+        copyright:
+          "© 2026 Salla — All Rights Reserved."
 
       }
 
-    }
-  );
+    };
 
 
-  /* =========================================================
-     REVEAL ANIMATION
-  ========================================================= */
+    /* =====================================================
+       DOM
+    ====================================================== */
 
-  const revealElements =
-    document.querySelectorAll(".reveal");
+    const languageToggle =
+      document.getElementById(
+        "languageToggle"
+      );
 
 
-  const revealObserver =
-    new IntersectionObserver(
-      entries => {
+    const languageText =
+      document.getElementById(
+        "languageText"
+      );
 
-        entries.forEach(entry => {
 
-          if (entry.isIntersecting) {
+    const navCenter =
+      document.getElementById(
+        "navCenter"
+      );
 
-            entry.target.classList.add(
-              "visible"
+
+    const mobileMenu =
+      document.getElementById(
+        "mobileMenu"
+      );
+
+
+    const header =
+      document.getElementById(
+        "header"
+      );
+
+
+    /* =====================================================
+       LANGUAGE
+    ====================================================== */
+
+    let currentLanguage =
+      localStorage.getItem(
+        "salla-language"
+      ) || "ar";
+
+
+    function setLanguage(language) {
+
+      if (
+        !translations[language]
+      ) {
+
+        language = "ar";
+
+      }
+
+
+      currentLanguage =
+        language;
+
+
+      document.documentElement.lang =
+        language;
+
+
+      document.documentElement.dir =
+        language === "ar"
+          ? "rtl"
+          : "ltr";
+
+
+      document
+        .querySelectorAll("[data-i18n]")
+        .forEach(element => {
+
+          const key =
+            element.getAttribute(
+              "data-i18n"
             );
 
-            revealObserver.unobserve(
-              entry.target
-            );
+
+          const value =
+            translations[language][key];
+
+
+          if (
+            value !== undefined
+          ) {
+
+            element.innerHTML =
+              value;
 
           }
 
         });
 
-      },
-      {
-        threshold: .12
+
+      document.title =
+        translations[
+          language
+        ].pageTitle;
+
+
+      languageText.textContent =
+        language === "ar"
+          ? "English"
+          : "العربية";
+
+
+      mobileMenu.setAttribute(
+        "aria-label",
+        language === "ar"
+          ? "فتح القائمة"
+          : "Open menu"
+      );
+
+
+      localStorage.setItem(
+        "salla-language",
+        language
+      );
+
+    }
+
+
+    languageToggle.addEventListener(
+      "click",
+      () => {
+
+        setLanguage(
+          currentLanguage === "ar"
+            ? "en"
+            : "ar"
+        );
+
       }
     );
 
 
-  revealElements.forEach(element => {
-
-    revealObserver.observe(element);
-
-  });
+    setLanguage(
+      currentLanguage
+    );
 
 
-  /* =========================================================
-     MOBILE MENU
-  ========================================================= */
+    /* =====================================================
+       HEADER SCROLL
+    ====================================================== */
 
-  const mobileMenu =
-    document.getElementById("mobileMenu");
+    function updateHeader() {
 
-  const navCenter =
-    document.querySelector(".nav-center");
+      if (
+        window.scrollY > 30
+      ) {
 
-
-  mobileMenu.addEventListener(
-    "click",
-    () => {
-
-      const isOpen =
-        navCenter.style.display === "flex";
-
-
-      if (isOpen) {
-
-        navCenter.style.display =
-          "none";
+        header.classList.add(
+          "scrolled"
+        );
 
       } else {
 
-        navCenter.style.display =
-          "flex";
-
-        navCenter.style.position =
-          "absolute";
-
-        navCenter.style.top =
-          "78px";
-
-        navCenter.style.left =
-          "15px";
-
-        navCenter.style.right =
-          "15px";
-
-        navCenter.style.padding =
-          "18px";
-
-        navCenter.style.borderRadius =
-          "18px";
-
-        navCenter.style.background =
-          "rgba(7,27,18,.97)";
-
-        navCenter.style.border =
-          "1px solid rgba(255,255,255,.1)";
-
-        navCenter.style.flexDirection =
-          "column";
-
-        navCenter.style.gap =
-          "18px";
+        header.classList.remove(
+          "scrolled"
+        );
 
       }
 
     }
-  );
 
 
-  /* =========================================================
-     CLOSE MOBILE MENU
-  ========================================================= */
+    window.addEventListener(
+      "scroll",
+      updateHeader,
+      {
+        passive: true
+      }
+    );
 
-  document
-    .querySelectorAll(".nav-center a")
-    .forEach(link => {
 
-      link.addEventListener(
-        "click",
-        () => {
+    updateHeader();
 
-          if (
-            window.innerWidth <= 1000
-          ) {
 
-            navCenter.style.display =
-              "none";
+    /* =====================================================
+       REVEAL ANIMATION
+    ====================================================== */
 
-          }
-
-        }
+    const revealElements =
+      document.querySelectorAll(
+        ".reveal"
       );
 
-    });
+
+    if (
+      "IntersectionObserver"
+      in window
+    ) {
+
+      const revealObserver =
+        new IntersectionObserver(
+          entries => {
+
+            entries.forEach(
+              entry => {
+
+                if (
+                  entry.isIntersecting
+                ) {
+
+                  entry.target.classList.add(
+                    "visible"
+                  );
 
 
-  /* =========================================================
-     SMOOTH ANCHOR
-  ========================================================= */
+                  revealObserver.unobserve(
+                    entry.target
+                  );
 
-  document
-    .querySelectorAll('a[href^="#"]')
-    .forEach(anchor => {
+                }
 
-      anchor.addEventListener(
-        "click",
-        function(e) {
-
-          const target =
-            document.querySelector(
-              this.getAttribute("href")
+              }
             );
 
-          if (!target) return;
+          },
+          {
+            threshold:
+              .12
+          }
+        );
 
-          e.preventDefault();
 
-          target.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
+      revealElements.forEach(
+        element => {
+
+          revealObserver.observe(
+            element
+          );
 
         }
       );
 
-    });
+    } else {
 
-</script>
+      revealElements.forEach(
+        element => {
+
+          element.classList.add(
+            "visible"
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       MOBILE MENU
+    ====================================================== */
+
+    function openMobileMenu() {
+
+      navCenter.classList.add(
+        "open"
+      );
+
+      mobileMenu.setAttribute(
+        "aria-expanded",
+        "true"
+      );
+
+      mobileMenu.textContent =
+        "✕";
+
+    }
+
+
+    function closeMobileMenu() {
+
+      navCenter.classList.remove(
+        "open"
+      );
+
+      mobileMenu.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      mobileMenu.textContent =
+        "☰";
+
+    }
+
+
+    mobileMenu.addEventListener(
+      "click",
+      event => {
+
+        event.stopPropagation();
+
+
+        const isOpen =
+          navCenter.classList.contains(
+            "open"
+          );
+
+
+        if (isOpen) {
+
+          closeMobileMenu();
+
+        } else {
+
+          openMobileMenu();
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       CLOSE MENU AFTER CLICK
+    ====================================================== */
+
+    document
+      .querySelectorAll(
+        ".nav-center a"
+      )
+      .forEach(link => {
+
+        link.addEventListener(
+          "click",
+          () => {
+
+            closeMobileMenu();
+
+          }
+        );
+
+      });
+
+
+    /* =====================================================
+       CLOSE MENU OUTSIDE
+    ====================================================== */
+
+    document.addEventListener(
+      "click",
+      event => {
+
+        if (
+          !navCenter.contains(
+            event.target
+          ) &&
+          !mobileMenu.contains(
+            event.target
+          )
+        ) {
+
+          closeMobileMenu();
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       RESIZE
+    ====================================================== */
+
+    window.addEventListener(
+      "resize",
+      () => {
+
+        if (
+          window.innerWidth > 1000
+        ) {
+
+          closeMobileMenu();
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       SMOOTH ANCHORS
+    ====================================================== */
+
+    document
+      .querySelectorAll(
+        'a[href^="#"]'
+      )
+      .forEach(anchor => {
+
+        anchor.addEventListener(
+          "click",
+          function(event) {
+
+            const href =
+              this.getAttribute(
+                "href"
+              );
+
+
+            if (
+              !href ||
+              href === "#"
+            ) {
+
+              event.preventDefault();
+
+              window.scrollTo({
+                top:
+                  0,
+
+                behavior:
+                  "smooth"
+              });
+
+              return;
+
+            }
+
+
+            const target =
+              document.querySelector(
+                href
+              );
+
+
+            if (!target) {
+
+              return;
+
+            }
+
+
+            event.preventDefault();
+
+
+            target.scrollIntoView({
+              behavior:
+                "smooth",
+
+              block:
+                "start"
+            });
+
+          }
+        );
+
+      });
+
+
+  </script>
 
 </body>
-</html>
 
+</html>
